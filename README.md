@@ -1,5 +1,9 @@
 # OrPaynter Overlay
 
+**OrPaynter, Inc. by Oliver Paynter · [@orpaynter](https://github.com/orpaynter)**
+
+[Company and revenue model](docs/orpaynter/COMPANY_AND_REVENUE_MODEL.md) · [Products and services](https://www.orpaynter.com/products) · [Live AIA proof](docs/orpaynter/LIVE_AIA_LOOP_PROOF.md)
+
 A navigable digital world connecting public signals, saved evidence, company work, and AI analysis. The globe is the spatial front door; Overlay connects what is happening, what was captured, what might happen, and the services that can help.
 
 ## Run locally
