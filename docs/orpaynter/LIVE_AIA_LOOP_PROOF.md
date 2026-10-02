@@ -20,6 +20,16 @@ A genuine HTTP readiness observation was uploaded as source evidence. Its six-st
 
 CI included 387 backend passes and a separate PostgreSQL integration selection with 4 passes. Those jobs test implementation and migration isolation; they do not close live acceptance clauses.
 
+## Deployed bridge and concrete review packet
+
+The expanded bridge is now deployed in the protected canonical preview from `1346568b966b856af29121dd3394dfe3aadbed06`. All 14 [current-source CI jobs](https://github.com/orpaynter/AIA/actions/runs/36965779293) passed; the full backend suite passed 398 tests, with 4 integration tests selected separately. Fifty focused bridge, intake and ClaimFlow tests cover approval, exact input/capability binding, transaction rollback, retry, tenant boundaries, kill switches, tampering and two-cycle learning adoption. These tests remain synthetic implementation proof.
+
+A fresh actual readiness observation produced pending package `DP-GACC-c90e7abc265eab6d4dc1ad602e715ea7e3c481cf`, version 1, with integrity hash `1128e7003707c402d8043270d3fbb9875abf964713f06b795cced0f55936137e`. The deployed API refused premature execution with HTTP 409. The action is confined to normalizing the exact supplied observation and recording artifact evidence, receipt, measured outcome, reconciliation and bounded schema learning. No owner approval or live consequence is claimed.
+
+The first verified successful outcome can provide measured JSON field types to a second validator, which rejects incompatible new input. This is bounded schema-contract learning; better forecasts and general intelligence are not established. The implemented portable proof reconstructs exact original bytes and the predecessor bindings. Long-history reconstruction performance remains unproven.
+
+An hourly follow-up checks the published product pages and canonical preview within existing gates. It does not create approvals or turn a schedule into proof of autonomous operation.
+
 ## Still required
 
 A concrete, reviewed execution package must bind the actual input, validated capability and declared action scope. Only then can a real execution produce an artifact and receipt. Independent reconstruction must validate that output and its approval bindings, followed by a measured outcome, reconciliation and permitted learning. A new real input must consume verified learning in a second bounded cycle while retaining the authority gates.
