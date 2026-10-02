@@ -1,0 +1,11 @@
+{
+  "passed": 5,
+  "checks": [
+    "10 public site cards",
+    "10 CAD links",
+    "10 rendered source footprint SVGs",
+    "mobile viewport fits",
+    "no uncaught browser errors"
+  ],
+  "errors": []
+}

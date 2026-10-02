@@ -1,0 +1,42 @@
+import { chromium } from '/mnt/c/Users/OrPay/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
+import fs from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const browser = await chromium.launch({ executablePath: '/root/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome', headless: true, args: ['--no-sandbox', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+const checks = [], errors = [];
+page.on('pageerror', error => errors.push(error.message));
+function check(name, result) { assert.ok(result, name); checks.push(name); }
+try {
+  await page.goto('http://127.0.0.1:4180/?profile=company&purpose=operations', { waitUntil: 'domcontentloaded', timeout: 120000 });
+  const desk = page.getByRole('region', { name: 'OrPaynter company operations' });
+  await desk.getByRole('button', { name: 'Company operations', exact: true }).waitFor({ timeout: 60000 });
+  await page.waitForTimeout(12000);
+  check('original OrPaynter mark renders', await page.getByRole('img', { name: 'OrPaynter orbital O/P mark' }).first().evaluate(e => e.complete && e.naturalWidth > 0));
+  check('company preset is active', await desk.getAttribute('data-operating-profile') === 'company');
+  check('real globe still renders', await page.locator('canvas.maplibregl-canvas').count() === 1);
+  let params = new URL(page.url()).searchParams;
+  check('company preset avoids camera autoplay and orbital clutter', !params.get('layers').includes('cctv') && !params.get('layers').includes('satellites'));
+  check('company context layers present', params.get('layers').includes('weather') && params.get('layers').includes('infrastructure'));
+  await desk.getByRole('button', { name: 'World exploration', exact: true }).click();
+  await page.waitForTimeout(2000);
+  params = new URL(page.url()).searchParams;
+  check('world preset opens orbit and movement layers', params.get('profile') === 'world' && params.get('layers').includes('satellites') && params.get('layers').includes('flights'));
+  check('profile switching preserves other URL context', params.get('purpose') === 'operations');
+  await desk.getByRole('button', { name: 'Company operations', exact: true }).click();
+  await page.waitForTimeout(2000);
+  await page.screenshot({ path: 'orpaynter-evidence/company-setup-desktop.png' });
+  const manifest = await (await page.request.get('http://127.0.0.1:4180/manifest.json')).json();
+  check('install identity and start view updated', manifest.name.includes('OrPaynter Overlay') && manifest.start_url === '/?profile=company' && manifest.icons.every(i => i.src.startsWith('/brand/orpaynter-')));
+  check('browser icon uses new brand', await page.locator('link[rel="icon"][href="/brand/orpaynter-32.png"]').count() > 0);
+  await page.goto('http://127.0.0.1:4180/?layers=satellites&purpose=shared', { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(8500);
+  check('existing shared selection remains custom', await desk.getAttribute('data-operating-profile') === 'custom' && new URL(page.url()).searchParams.get('layers') === 'satellites');
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('http://127.0.0.1:4180/?profile=company', { waitUntil: 'domcontentloaded' });
+  await page.getByRole('button', { name: 'Open company operations' }).click({ timeout: 60000 });
+  check('company profile controls accessible on mobile', await desk.getByRole('button', { name: 'World exploration', exact: true }).isVisible());
+  await page.screenshot({ path: 'orpaynter-evidence/company-setup-mobile.png' });
+  check('no uncaught browser errors', errors.length === 0);
+  await fs.writeFile('orpaynter-evidence/company-setup-browser-qa.json', JSON.stringify({ checkedAt: new Date().toISOString(), passed: checks.length, checks, errors }, null, 2));
+  console.log(JSON.stringify({ passed: checks.length }));
+} finally { await browser.close(); }

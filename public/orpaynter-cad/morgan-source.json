@@ -1,0 +1,121 @@
+{
+  "id": "morgan",
+  "name": "Morgan Library & Museum",
+  "address": "225 Madison Avenue, New York, NY 10016",
+  "addressSource": "https://www.themorgan.org/campus/mckim",
+  "navigationPoint": {
+    "lng": -73.9814652,
+    "lat": 40.7492685,
+    "precision": "approximate lookup point; not a survey control point"
+  },
+  "identityStatus": "candidate intersection; confirm BIN before property use",
+  "proofClass": "PUBLIC SOURCE CAPTURE; NOT SURVEY VERIFIED",
+  "footprintSource": {
+    "url": "https://services6.arcgis.com/yG5s3afENB5iO9fj/arcgis/rest/services/BUILDING_view/FeatureServer/0/query?f=json&geometry=-73.9814652%2C40.7492685&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=BIN%2CNAME%2CGEOM_SOURCE%2CHEIGHT_ROOF%2CGROUND_ELEVATION%2CLAST_EDITED_DATE%2CFEATURE_CODE&returnGeometry=true&outSR=2263",
+    "sha256": "83f27530838f610aca71f2781f04ba5b75a8880c46ac890b7942ca28291d9cb1",
+    "capturedAt": "2026-09-30T01:38:49.922546+00:00"
+  },
+  "footprints": [
+    {
+      "attributes": {
+        "BIN": 1017186,
+        "NAME": null,
+        "GEOM_SOURCE": "Photogrammetric",
+        "HEIGHT_ROOF": 77.59,
+        "GROUND_ELEVATION": 78,
+        "LAST_EDITED_DATE": 1580232339000,
+        "FEATURE_CODE": 2100
+      },
+      "geometry": {
+        "rings": [
+          [
+            [
+              989461.368173948,
+              212184.627846961
+            ],
+            [
+              989354.229280606,
+              212242.72418747
+            ],
+            [
+              989343.444525272,
+              212248.572272868
+            ],
+            [
+              989361.187928114,
+              212281.293664128
+            ],
+            [
+              989372.752209445,
+              212275.022679287
+            ],
+            [
+              989378.425098362,
+              212285.484272545
+            ],
+            [
+              989374.693806606,
+              212287.507234376
+            ],
+            [
+              989371.039942521,
+              212294.870080542
+            ],
+            [
+              989355.864119861,
+              212303.099066699
+            ],
+            [
+              989378.749900854,
+              212345.304362877
+            ],
+            [
+              989477.66308886,
+              212291.668643366
+            ],
+            [
+              989474.562045188,
+              212285.949822783
+            ],
+            [
+              989506.824119778,
+              212268.455763289
+            ],
+            [
+              989461.368173948,
+              212184.627846961
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "coordinateSystem": {
+    "wkid": 102718,
+    "latestWkid": 2263
+  },
+  "lidarSource": {
+    "url": "https://tnmaccess.nationalmap.gov/api/v1/products?datasets=Lidar+Point+Cloud+%28LPC%29&bbox=-73.9817652%2C40.7489685%2C-73.9811652%2C40.7495685&max=10",
+    "sha256": "49c5b31b3e250703e1557b50a04b6716f64be8cc97f0ccaba70aa3451ef424b3",
+    "capturedAt": "2026-09-30T01:38:50.337714+00:00"
+  },
+  "lidarCount": 1,
+  "lidarCatalogue": [
+    {
+      "title": "USGS Lidar Point Cloud NY_New_York_CMGP_SANDY_LiDAR_15 18TWL850105",
+      "sourceId": "64ac26bad34e70357a28d6a0",
+      "publicationDate": "2015-04-14",
+      "lastUpdated": "2023-07-10T09:41:50.184-06:00",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/64ac26bad34e70357a28d6a0",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/NY_New_York_CMGP_SANDY_LiDAR_15/NY_CMPG_2013/LAZ/USGS_LPC_NY_New_York_CMGP_SANDY_LiDAR_15_18TWL850105.laz",
+      "boundingBox": {
+        "minX": -73.9932543613726,
+        "maxX": -73.9752839132895,
+        "minY": 40.740900870905,
+        "maxY": 40.754567777763
+      },
+      "sizeInBytes": 35853320
+    }
+  ],
+  "lidarStatus": "catalogue coverage only; points not downloaded or inspected"
+}

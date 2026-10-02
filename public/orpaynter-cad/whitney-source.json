@@ -1,0 +1,247 @@
+{
+  "id": "whitney",
+  "name": "Whitney Museum of American Art",
+  "address": "99 Gansevoort Street, New York, NY 10014",
+  "addressSource": "https://whitney.org/visit",
+  "navigationPoint": {
+    "lng": -74.0089,
+    "lat": 40.7396,
+    "precision": "approximate lookup point; not a survey control point"
+  },
+  "identityStatus": "candidate intersection; confirm BIN before property use",
+  "proofClass": "PUBLIC SOURCE CAPTURE; NOT SURVEY VERIFIED",
+  "footprintSource": {
+    "url": "https://services6.arcgis.com/yG5s3afENB5iO9fj/arcgis/rest/services/BUILDING_view/FeatureServer/0/query?f=json&geometry=-74.0089%2C40.7396&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=BIN%2CNAME%2CGEOM_SOURCE%2CHEIGHT_ROOF%2CGROUND_ELEVATION%2CLAST_EDITED_DATE%2CFEATURE_CODE&returnGeometry=true&outSR=2263",
+    "sha256": "e511e8c413aec81683480c6f00e0f21697f4b65e9372aab188d94a95984b37e6",
+    "capturedAt": "2026-09-30T01:38:48.962319+00:00"
+  },
+  "footprints": [
+    {
+      "attributes": {
+        "BIN": 1089239,
+        "NAME": null,
+        "GEOM_SOURCE": "Photogrammetric",
+        "HEIGHT_ROOF": 34.45,
+        "GROUND_ELEVATION": 9,
+        "LAST_EDITED_DATE": 1503424280000,
+        "FEATURE_CODE": 2100
+      },
+      "geometry": {
+        "rings": [
+          [
+            [
+              981821.40641977,
+              208811.742860448
+            ],
+            [
+              981825.703983352,
+              208811.62278195
+            ],
+            [
+              981825.678064779,
+              208811.18183796
+            ],
+            [
+              981825.430033781,
+              208806.93414302
+            ],
+            [
+              981822.895590023,
+              208763.528389955
+            ],
+            [
+              981914.653280531,
+              208758.971968616
+            ],
+            [
+              981914.61751944,
+              208758.417179706
+            ],
+            [
+              981913.514175195,
+              208741.263998797
+            ],
+            [
+              981904.732696686,
+              208741.828958282
+            ],
+            [
+              981900.27437227,
+              208672.535461714
+            ],
+            [
+              981896.316703024,
+              208672.790054391
+            ],
+            [
+              981869.458160938,
+              208674.518397367
+            ],
+            [
+              981855.821705268,
+              208675.395692217
+            ],
+            [
+              981821.035357521,
+              208677.633876709
+            ],
+            [
+              981785.700126351,
+              208679.90716612
+            ],
+            [
+              981684.583202606,
+              208686.413058627
+            ],
+            [
+              981645.149226356,
+              208688.950127033
+            ],
+            [
+              981631.781142863,
+              208689.810361532
+            ],
+            [
+              981629.766711194,
+              208689.939954451
+            ],
+            [
+              981631.059031449,
+              208710.028496956
+            ],
+            [
+              981632.876941198,
+              208738.285986382
+            ],
+            [
+              981634.392030022,
+              208761.831871045
+            ],
+            [
+              981647.845743269,
+              208760.966059126
+            ],
+            [
+              981651.83392427,
+              208760.709497964
+            ],
+            [
+              981664.103256689,
+              208759.920129461
+            ],
+            [
+              981665.408044102,
+              208780.199616462
+            ],
+            [
+              981676.45723461,
+              208791.035880874
+            ],
+            [
+              981693.236400517,
+              208777.639254121
+            ],
+            [
+              981696.457522693,
+              208781.841345451
+            ],
+            [
+              981717.472572525,
+              208809.257629197
+            ],
+            [
+              981718.547701603,
+              208810.89607737
+            ],
+            [
+              981727.802604346,
+              208810.368847457
+            ],
+            [
+              981778.551518607,
+              208807.095560049
+            ],
+            [
+              981793.861527354,
+              208806.1080292
+            ],
+            [
+              981794.337576274,
+              208813.488919961
+            ],
+            [
+              981796.285407022,
+              208813.363264044
+            ],
+            [
+              981807.659728103,
+              208812.629669707
+            ],
+            [
+              981821.40641977,
+              208811.742860448
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "coordinateSystem": {
+    "wkid": 102718,
+    "latestWkid": 2263
+  },
+  "lidarSource": {
+    "url": "https://tnmaccess.nationalmap.gov/api/v1/products?datasets=Lidar+Point+Cloud+%28LPC%29&bbox=-74.00919999999999%2C40.7393%2C-74.0086%2C40.739900000000006&max=10",
+    "sha256": "eb96d24433edc05d57c51d65f847a73fc57fd060d4d7574a5287a433d595354d",
+    "capturedAt": "2026-09-30T01:38:49.435900+00:00"
+  },
+  "lidarCount": 3,
+  "lidarCatalogue": [
+    {
+      "title": "USGS Lidar Point Cloud NJ_NE6County_B23 K6D12",
+      "sourceId": "6aab3c071ba49b8ae256f0cf",
+      "publicationDate": "2026-09-15",
+      "lastUpdated": "2026-09-16T19:02:15.948-06:00",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/6aab3c071ba49b8ae256f0cf",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/NJ_NE6County_B23/NJ_NE6Co_2_B23/LAZ/USGS_LPC_NJ_NE6County_B23_K6D12.laz",
+      "boundingBox": {
+        "minX": -74.0205536008,
+        "maxX": -74.0063751098,
+        "minY": 40.7266548525,
+        "maxY": 40.7404387734
+      },
+      "sizeInBytes": 100521382
+    },
+    {
+      "title": "USGS Lidar Point Cloud NJ_New_Jersey_SANDY_LiDAR_15 18TWL835090",
+      "sourceId": "6871b3afd4be02732f8799e5",
+      "publicationDate": "2015-05-03",
+      "lastUpdated": "2025-07-11T19:04:25.891-06:00",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/6871b3afd4be02732f8799e5",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/NJ_New_Jersey_SANDY_LiDAR_15/NJ_SdL5_2014/LAZ/USGS_LPC_NJ_New_Jersey_SANDY_LiDAR_15_18TWL835090.laz",
+      "boundingBox": {
+        "minX": -74.01121798265405,
+        "maxX": -74.00852971217796,
+        "minY": 40.72767846956474,
+        "maxY": 40.74121059383612
+      },
+      "sizeInBytes": 4596667
+    },
+    {
+      "title": "USGS Lidar Point Cloud NY_New_York_CMGP_SANDY_LiDAR_15 18TWL835090",
+      "sourceId": "64ac26c4d34e70357a28d6bb",
+      "publicationDate": "2015-04-14",
+      "lastUpdated": "2023-07-10T09:41:59.734-06:00",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/64ac26c4d34e70357a28d6bb",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/NY_New_York_CMGP_SANDY_LiDAR_15/NY_CMPG_2013/LAZ/USGS_LPC_NY_New_York_CMGP_SANDY_LiDAR_15_18TWL835090.laz",
+      "boundingBox": {
+        "minX": -74.011217982654,
+        "maxX": -73.9932546009355,
+        "minY": 40.7275462965495,
+        "maxY": 40.7412105938361
+      },
+      "sizeInBytes": 44573331
+    }
+  ],
+  "lidarStatus": "catalogue coverage only; points not downloaded or inspected"
+}

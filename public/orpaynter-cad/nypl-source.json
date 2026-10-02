@@ -1,0 +1,221 @@
+{
+  "id": "nypl",
+  "name": "New York Public Library \u2014 Schwarzman Building",
+  "address": "476 Fifth Avenue, New York, NY 10018",
+  "addressSource": "https://www.nypl.org/spotlight/schwarzman-plan-your-visit",
+  "navigationPoint": {
+    "lng": -73.9822,
+    "lat": 40.7532,
+    "precision": "approximate lookup point; not a survey control point"
+  },
+  "identityStatus": "candidate intersection; confirm BIN before property use",
+  "proofClass": "PUBLIC SOURCE CAPTURE; NOT SURVEY VERIFIED",
+  "footprintSource": {
+    "url": "https://services6.arcgis.com/yG5s3afENB5iO9fj/arcgis/rest/services/BUILDING_view/FeatureServer/0/query?f=json&geometry=-73.9822%2C40.7532&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=BIN%2CNAME%2CGEOM_SOURCE%2CHEIGHT_ROOF%2CGROUND_ELEVATION%2CLAST_EDITED_DATE%2CFEATURE_CODE&returnGeometry=true&outSR=2263",
+    "sha256": "f504b5f1ffe36e4e6582c31ace3b2ff93e35d60d97acafb78086a42d859d10f0",
+    "capturedAt": "2026-09-30T01:38:49.602616+00:00"
+  },
+  "footprints": [
+    {
+      "attributes": {
+        "BIN": 1034194,
+        "NAME": "New York Public Library",
+        "GEOM_SOURCE": "Photogrammetric",
+        "HEIGHT_ROOF": 125.26,
+        "GROUND_ELEVATION": 77,
+        "LAST_EDITED_DATE": 1503425998000,
+        "FEATURE_CODE": 2100
+      },
+      "geometry": {
+        "rings": [
+          [
+            [
+              989145.172940199,
+              213920.28316829
+            ],
+            [
+              989236.082863363,
+              213869.848557874
+            ],
+            [
+              989245.448658276,
+              213864.65270212
+            ],
+            [
+              989246.627133612,
+              213866.776713627
+            ],
+            [
+              989280.144783116,
+              213848.181934528
+            ],
+            [
+              989279.08343353,
+              213846.268880622
+            ],
+            [
+              989305.589614108,
+              213831.563857546
+            ],
+            [
+              989308.472482361,
+              213829.964779379
+            ],
+            [
+              989346.109546187,
+              213809.084571785
+            ],
+            [
+              989364.174470695,
+              213799.06261022
+            ],
+            [
+              989378.682315699,
+              213791.014069873
+            ],
+            [
+              989378.869323195,
+              213790.910395542
+            ],
+            [
+              989362.754854098,
+              213761.863209554
+            ],
+            [
+              989322.066287189,
+              213688.519852294
+            ],
+            [
+              989310.815981613,
+              213668.240365289
+            ],
+            [
+              989308.802206104,
+              213664.610779369
+            ],
+            [
+              989311.059419443,
+              213663.358485308
+            ],
+            [
+              989326.629926359,
+              213654.720379201
+            ],
+            [
+              989318.112554941,
+              213639.367719613
+            ],
+            [
+              989279.888221937,
+              213570.466610709
+            ],
+            [
+              989261.248167354,
+              213580.807797381
+            ],
+            [
+              989194.006175871,
+              213459.601346867
+            ],
+            [
+              989189.99995028,
+              213452.379904629
+            ],
+            [
+              989152.126666443,
+              213473.391017455
+            ],
+            [
+              989108.054904199,
+              213497.840771699
+            ],
+            [
+              989096.053943934,
+              213504.498566787
+            ],
+            [
+              989013.815591359,
+              213550.121835119
+            ],
+            [
+              988957.489916615,
+              213581.369804126
+            ],
+            [
+              988974.785157609,
+              213612.545594795
+            ],
+            [
+              988972.116199691,
+              213614.026234884
+            ],
+            [
+              988988.605011854,
+              213643.748288288
+            ],
+            [
+              988989.738211694,
+              213643.120008705
+            ],
+            [
+              988990.567278269,
+              213644.614428292
+            ],
+            [
+              989110.054572107,
+              213859.995887284
+            ],
+            [
+              989109.21106986,
+              213860.464062212
+            ],
+            [
+              989125.627047527,
+              213890.054554209
+            ],
+            [
+              989127.749746701,
+              213888.877063124
+            ],
+            [
+              989140.709694521,
+              213912.238236866
+            ],
+            [
+              989145.172940199,
+              213920.28316829
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "coordinateSystem": {
+    "wkid": 102718,
+    "latestWkid": 2263
+  },
+  "lidarSource": {
+    "url": "https://tnmaccess.nationalmap.gov/api/v1/products?datasets=Lidar+Point+Cloud+%28LPC%29&bbox=-73.9825%2C40.7529%2C-73.98190000000001%2C40.7535&max=10",
+    "sha256": "18b5710d7dc1cfe6b0925289e0402e70ccb47c8ba59b0b3cf73681f59d948f83",
+    "capturedAt": "2026-09-30T01:38:50.112765+00:00"
+  },
+  "lidarCount": 1,
+  "lidarCatalogue": [
+    {
+      "title": "USGS Lidar Point Cloud NY_New_York_CMGP_SANDY_LiDAR_15 18TWL850105",
+      "sourceId": "64ac26bad34e70357a28d6a0",
+      "publicationDate": "2015-04-14",
+      "lastUpdated": "2023-07-10T09:41:50.184-06:00",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/64ac26bad34e70357a28d6a0",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/NY_New_York_CMGP_SANDY_LiDAR_15/NY_CMPG_2013/LAZ/USGS_LPC_NY_New_York_CMGP_SANDY_LiDAR_15_18TWL850105.laz",
+      "boundingBox": {
+        "minX": -73.9932543613726,
+        "maxX": -73.9752839132895,
+        "minY": 40.740900870905,
+        "maxY": 40.754567777763
+      },
+      "sizeInBytes": 35853320
+    }
+  ],
+  "lidarStatus": "catalogue coverage only; points not downloaded or inspected"
+}

@@ -1,0 +1,6 @@
+import { chromium } from '/mnt/c/Users/OrPay/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
+import fs from 'node:fs/promises';
+const browser=await chromium.launch({executablePath:'/root/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+const page=await browser.newPage({viewport:{width:1440,height:1000}});
+const errors=[],failed=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});page.on('requestfailed',r=>failed.push({url:r.url(),reason:r.failure()?.errorText}));
+try{await page.goto('http://127.0.0.1:4180/',{waitUntil:'domcontentloaded',timeout:120000});await page.waitForTimeout(22000);await page.screenshot({path:'orpaynter-evidence/globe-initial.png'});await fs.writeFile('orpaynter-evidence/browser-initial.json',JSON.stringify({errors,failed,canvas:await page.locator('canvas').count(),body:(await page.locator('body').innerText()).slice(0,18000)},null,2));console.log('Canvas',await page.locator('canvas').count(),'Errors',errors.slice(0,6));}finally{await browser.close();}

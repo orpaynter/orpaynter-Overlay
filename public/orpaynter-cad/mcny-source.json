@@ -1,0 +1,225 @@
+{
+  "id": "mcny",
+  "name": "Museum of the City of New York",
+  "address": "1220 Fifth Avenue, New York, NY 10029",
+  "addressSource": "https://www.mcny.org/visit",
+  "navigationPoint": {
+    "lng": -73.951802,
+    "lat": 40.7925266,
+    "precision": "approximate lookup point; not a survey control point"
+  },
+  "identityStatus": "candidate intersection; confirm BIN before property use",
+  "proofClass": "PUBLIC SOURCE CAPTURE; NOT SURVEY VERIFIED",
+  "footprintSource": {
+    "url": "https://services6.arcgis.com/yG5s3afENB5iO9fj/arcgis/rest/services/BUILDING_view/FeatureServer/0/query?f=json&geometry=-73.951802%2C40.7925266&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=BIN%2CNAME%2CGEOM_SOURCE%2CHEIGHT_ROOF%2CGROUND_ELEVATION%2CLAST_EDITED_DATE%2CFEATURE_CODE&returnGeometry=true&outSR=2263",
+    "sha256": "3c65b6e744be7ec25ceb679194bfdea76028603faa4db1112ee1f8ed71adb68d",
+    "capturedAt": "2026-09-30T01:38:50.345322+00:00"
+  },
+  "footprints": [
+    {
+      "attributes": {
+        "BIN": 1074157,
+        "NAME": null,
+        "GEOM_SOURCE": "Photogrammetric",
+        "HEIGHT_ROOF": 95.52,
+        "GROUND_ELEVATION": 35,
+        "LAST_EDITED_DATE": 1580231935000,
+        "FEATURE_CODE": 2100
+      },
+      "geometry": {
+        "rings": [
+          [
+            [
+              997549.623322864,
+              228133.184204364
+            ],
+            [
+              997604.857136264,
+              228102.847322787
+            ],
+            [
+              997605.098605608,
+              228103.287282535
+            ],
+            [
+              997605.31612486,
+              228103.682951041
+            ],
+            [
+              997605.419799198,
+              228103.871927038
+            ],
+            [
+              997626.086424519,
+              228092.520899873
+            ],
+            [
+              997625.952566524,
+              228092.277462029
+            ],
+            [
+              997624.539511609,
+              228089.704304462
+            ],
+            [
+              997624.175667187,
+              228089.04190421
+            ],
+            [
+              997637.146769857,
+              228081.917574626
+            ],
+            [
+              997681.098781691,
+              228057.776874864
+            ],
+            [
+              997679.432774516,
+              228054.743744458
+            ],
+            [
+              997607.493285854,
+              227923.76500378
+            ],
+            [
+              997586.457566771,
+              227885.465539706
+            ],
+            [
+              997580.134088606,
+              227888.938629885
+            ],
+            [
+              997531.341863352,
+              227915.737788872
+            ],
+            [
+              997529.245082774,
+              227916.889361387
+            ],
+            [
+              997529.771328441,
+              227917.847692789
+            ],
+            [
+              997489.606054445,
+              227939.908016129
+            ],
+            [
+              997453.137295353,
+              227959.938487864
+            ],
+            [
+              997451.821025017,
+              227960.661583543
+            ],
+            [
+              997473.665141437,
+              228000.43282945
+            ],
+            [
+              997474.360678109,
+              228000.050612374
+            ],
+            [
+              997477.398401698,
+              227998.382308617
+            ],
+            [
+              997480.589996361,
+              227996.629359368
+            ],
+            [
+              997518.441298612,
+              227975.839702786
+            ],
+            [
+              997527.388787273,
+              227992.130352635
+            ],
+            [
+              997534.345138196,
+              228004.795681615
+            ],
+            [
+              997526.812016773,
+              228008.933140546
+            ],
+            [
+              997530.236878695,
+              228015.168692384
+            ],
+            [
+              997534.154521785,
+              228022.301552107
+            ],
+            [
+              997546.726018941,
+              228045.190285875
+            ],
+            [
+              997554.259140362,
+              228041.05282695
+            ],
+            [
+              997570.392966366,
+              228070.427440123
+            ],
+            [
+              997530.037075942,
+              228092.592750129
+            ],
+            [
+              997526.837607265,
+              228094.349964457
+            ],
+            [
+              997525.616809194,
+              228095.020566781
+            ],
+            [
+              997543.702731034,
+              228127.949306714
+            ],
+            [
+              997547.283760618,
+              228134.469306791
+            ],
+            [
+              997549.623322864,
+              228133.184204364
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "coordinateSystem": {
+    "wkid": 102718,
+    "latestWkid": 2263
+  },
+  "lidarSource": {
+    "url": "https://tnmaccess.nationalmap.gov/api/v1/products?datasets=Lidar+Point+Cloud+%28LPC%29&bbox=-73.952102%2C40.7922266%2C-73.951502%2C40.792826600000005&max=10",
+    "sha256": "297060ebe6a451de94d209f5d8902a2e478650b1f739dd3b20f88aee26da54b9",
+    "capturedAt": "2026-09-30T01:38:50.673529+00:00"
+  },
+  "lidarCount": 1,
+  "lidarCatalogue": [
+    {
+      "title": "USGS Lidar Point Cloud NY_New_York_CMGP_SANDY_LiDAR_15 18TWL880150",
+      "sourceId": "64ac26b2d34e70357a28d686",
+      "publicationDate": "2015-04-14",
+      "lastUpdated": "2023-07-10T09:41:42.660-06:00",
+      "metaUrl": "https://www.sciencebase.gov/catalog/item/64ac26b2d34e70357a28d686",
+      "downloadURL": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/LPC/Projects/NY_New_York_CMGP_SANDY_LiDAR_15/NY_CMPG_2013/LAZ/USGS_LPC_NY_New_York_CMGP_SANDY_LiDAR_15_18TWL880150.laz",
+      "boundingBox": {
+        "minX": -73.9570942857909,
+        "maxX": -73.9391055867276,
+        "minY": 40.781111835832,
+        "maxY": 40.7947842828825
+      },
+      "sizeInBytes": 45077717
+    }
+  ],
+  "lidarStatus": "catalogue coverage only; points not downloaded or inspected"
+}

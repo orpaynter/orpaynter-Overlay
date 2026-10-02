@@ -1,0 +1,97 @@
+{
+  "reader": "ezdxf 1.4.4",
+  "sitesPassed": 10,
+  "checks": [
+    {
+      "site": "met",
+      "entities": 6,
+      "vertices": 176,
+      "sourceCoordinatesMatch": true,
+      "units": "US survey feet (INSUNITS 21)",
+      "readerAuditErrors": 0,
+      "readerAuditRepairs": 0
+    },
+    {
+      "site": "guggenheim",
+      "entities": 1,
+      "vertices": 67,
+      "sourceCoordinatesMatch": true,
+      "units": "US survey feet (INSUNITS 21)",
+      "readerAuditErrors": 0,
+      "readerAuditRepairs": 0
+    },
+    {
+      "site": "amnh",
+      "entities": 1,
+      "vertices": 309,
+      "sourceCoordinatesMatch": true,
+      "units": "US survey feet (INSUNITS 21)",
+      "readerAuditErrors": 0,
+      "readerAuditRepairs": 0
+    },
+    {
+      "site": "moma",
+      "entities": 1,
+      "vertices": 19,
+      "sourceCoordinatesMatch": true,
+      "units": "US survey feet (INSUNITS 21)",
+      "readerAuditErrors": 0,
+      "readerAuditRepairs": 0
+    },
+    {
+      "site": "whitney",
+      "entities": 1,
+      "vertices": 37,
+      "sourceCoordinatesMatch": true,
+      "units": "US survey feet (INSUNITS 21)",
+      "readerAuditErrors": 0,
+      "readerAuditRepairs": 0
+    },
+    {
+      "site": "brooklyn",
+      "entities": 1,
+      "vertices": 93,
+      "sourceCoordinatesMatch": true,
+      "units": "US survey feet (INSUNITS 21)",
+      "readerAuditErrors": 0,
+      "readerAuditRepairs": 0
+    },
+    {
+      "site": "nypl",
+      "entities": 1,
+      "vertices": 38,
+      "sourceCoordinatesMatch": true,
+      "units": "US survey feet (INSUNITS 21)",
+      "readerAuditErrors": 0,
+      "readerAuditRepairs": 0
+    },
+    {
+      "site": "cooper",
+      "entities": 1,
+      "vertices": 55,
+      "sourceCoordinatesMatch": true,
+      "units": "US survey feet (INSUNITS 21)",
+      "readerAuditErrors": 0,
+      "readerAuditRepairs": 0
+    },
+    {
+      "site": "morgan",
+      "entities": 1,
+      "vertices": 13,
+      "sourceCoordinatesMatch": true,
+      "units": "US survey feet (INSUNITS 21)",
+      "readerAuditErrors": 0,
+      "readerAuditRepairs": 0
+    },
+    {
+      "site": "mcny",
+      "entities": 1,
+      "vertices": 39,
+      "sourceCoordinatesMatch": true,
+      "units": "US survey feet (INSUNITS 21)",
+      "readerAuditErrors": 0,
+      "readerAuditRepairs": 0
+    }
+  ],
+  "meaning": "Independent CAD reader parses all files without errors/repairs and preserves source coordinates/closed rings/units. Not a survey accuracy guarantee or AutoCAD UI import test."
+}

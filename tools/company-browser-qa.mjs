@@ -1,0 +1,38 @@
+import { chromium } from '/mnt/c/Users/OrPay/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
+import fs from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const browser=await chromium.launch({executablePath:'/root/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+const page=await browser.newPage({viewport:{width:1440,height:1000},acceptDownloads:true});
+const errors=[],checks=[],requests=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(r.url().includes('/api/orpaynter/recovery?source=company')||r.url().includes('/api/orpaynter/recovery?source=satellites'))requests.push({url:r.url(),at:Date.now()});});
+const check=(name,value)=>{assert.ok(value,name);checks.push(name);};
+const url='http://127.0.0.1:4180/?layers=maritime,satellites,cctv,cctv_previews,live_news,earthquakes,global_incidents,day_night,cables,sdk_sea,sdk_air,sdk_naval';
+try{
+ await page.goto(url,{waitUntil:'domcontentloaded',timeout:120000});
+ const ownerResponse=await page.request.get('http://127.0.0.1:4180/api/orpaynter/recovery?source=company');const ownerState=await ownerResponse.json();const worldTask=ownerState.payload.work.find(w=>w.repo==='orpaynter/AIA'&&w.number===126&&w.kind==='pull_request');assert.ok(worldTask,'current World Twin task exists in the live owner read');
+ const desk=page.getByRole('region',{name:'OrPaynter company operations'});await desk.getByText('Owner account connected',{exact:true}).waitFor({timeout:30000});await page.waitForTimeout(15000);
+ check('actual globe canvas renders',await page.locator('canvas.maplibregl-canvas').count()===1);check('globe projection retained',await page.locator('[data-map-projection="globe"]').count()===1);
+ check('solo operator context visible',await desk.getByText('Oliver Paynter · sole operator',{exact:true}).count()===1);
+ check('actual company work visible',await desk.getByRole('button',{name:worldTask.title,exact:true}).count()===1);
+ check('blanket LIVE status removed',!(await page.locator('body').innerText()).includes('STATUS: LIVE'));
+ await page.screenshot({path:'orpaynter-evidence/company-globe.png'});
+ await desk.getByRole('button',{name:'sources',exact:true}).click();await desk.getByText('Satellite positions',{exact:true}).waitFor({timeout:30000});
+ check('satellites labeled as calculated positions',await desk.getByText(/Calculated from public orbital elements/).count()===1);check('receipt age visible',await desk.getByText(/Received \d+[smh] ago/).count()>0);
+ await desk.getByRole('button',{name:'workers',exact:true}).click();check('AIA disconnection visible',await desk.getByText('Company claims and execution are not connected.',{exact:true}).count()===1);check('actual journal jobs visible',await desk.locator('.orpa-work-card').count()>0);
+ await desk.getByRole('button',{name:'work',exact:true}).click();await desk.getByRole('button',{name:worldTask.title,exact:true}).click();
+ const pane=page.getByRole('region',{name:'OrPaynter intelligence workspace'});await pane.waitFor();await pane.getByRole('button',{name:'Run Grok analysis'}).waitFor();
+ check('real task selection opens Grok with task identity',await pane.getByText('orpaynter/AIA #126',{exact:true}).count()===1);check('selected task informs objective',(await pane.locator('textarea').inputValue()).includes(worldTask.title));
+ check('analysis-only scope visible',await pane.getByText(/no tools or external actions/).count()===1);
+ await page.waitForTimeout(35000);
+ check('company checks automatically refresh',requests.filter(r=>r.url.includes('/api/orpaynter/recovery?source=company')).length>=2);check('active satellite positions automatically refresh',requests.filter(r=>r.url.includes('/api/orpaynter/recovery?source=satellites')).length>=2);
+ await pane.getByRole('button',{name:'Run Grok analysis'}).waitFor({state:'visible'});
+ await pane.evaluate(e=>e.scrollTop=0);await page.screenshot({path:'orpaynter-evidence/company-task.png'});
+ await page.keyboard.press('Escape');check('Escape closes Grok workspace',await pane.count()===0);
+ await page.getByRole('button',{name:'Collapse company operations'}).click();
+ await page.getByRole('button',{name:/^SPACE TRACKING/}).click();check('upstream satellite layer controls stay accessible',await page.getByText('All Satellites',{exact:true}).isVisible());await page.getByRole('button',{name:/^SPACE TRACKING/}).click();
+ await page.setViewportSize({width:390,height:844});await page.waitForTimeout(1000);await page.getByRole('button',{name:'Open company operations'}).click();
+ let rect=await desk.boundingBox();check('mobile company workspace fits viewport',rect.x>=0&&rect.x+rect.width<=391);await desk.screenshot({path:'orpaynter-evidence/company-mobile.png'});
+ await page.getByRole('button',{name:'Collapse company operations'}).click();await page.getByRole('button',{name:'Open OrPaynter workspace'}).click();await pane.waitFor();rect=await pane.boundingBox();check('mobile Grok workspace fits viewport',rect.x>=0&&rect.x+rect.width<=391);check('no mobile horizontal overflow',await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+ const foreign=await page.request.get('http://127.0.0.1:4180/api/orpaynter/company',{headers:{Origin:'https://example.com'}});check('foreign-origin company access rejected',foreign.status()===403);
+ check('no uncaught browser errors',errors.length===0);
+ await fs.writeFile('orpaynter-evidence/company-browser-qa.json',JSON.stringify({checkedAt:new Date().toISOString(),passed:checks.length,checks,errors,requests},null,2));console.log(JSON.stringify({passed:checks.length,errors}));
+}finally{await browser.close();}
