@@ -6,16 +6,20 @@ import OrPaynterMark from '@/components/OrPaynterMark';
 import type { CompanyWork } from '@/lib/orpaynter/company';
 import type { ObservationSnapshot } from '@/lib/orpaynter/observations';
 
+import type { GrokLearningStatus } from '@/lib/orpaynter/grok-learning';
+
 type Runtime = {ready:boolean;installed:boolean;version:string|null;pluginCount:number;toolPolicy:string};
 type Run = {runId:string;status:string;snapshotId:string;objective:string;startedAt:string;completedAt?:string;text?:string;error?:string;companyWork?:CompanyWork;externalAction:false};
 const STORAGE='orpaynter.osiris.last-run.v1';
 export default function OrPaynterWorkspace({revealed,selectedCompanyWork}:{revealed:boolean;selectedCompanyWork:CompanyWork|null}) {
  const [open,setOpen]=useState(false),[runtime,setRuntime]=useState<Runtime|null>(null);
  const [snapshot,setSnapshot]=useState<ObservationSnapshot|null>(null),[loading,setLoading]=useState(false),[running,setRunning]=useState(false);
+ const [learning,setLearning]=useState<GrokLearningStatus|null>(null);
  const [run,setRun]=useState<Run|null>(null),[error,setError]=useState('');
  const [captureMode,setCaptureMode]=useState<'updating'|'frozen'>('updating');
  const [objective,setObjective]=useState('Summarize the public signals, explain uncertainty, and identify one useful next investigation for OrPaynter.');
  useEffect(()=>{fetch('/api/orpaynter/runtime').then(r=>r.json()).then(setRuntime).catch(()=>{});fetch('/api/orpaynter/grok').then(r=>r.json()).then(data=>{if(data?.runId)setRun(data);}).catch(()=>{});try{const prior=JSON.parse(localStorage.getItem(STORAGE)||'null');if(prior?.runId && prior?.status)setRun(prior);}catch{}},[]);
+ useEffect(()=>{let active=true;const refresh=()=>fetch('/api/orpaynter/learning').then(r=>{if(!r.ok)throw new Error();return r.json();}).then(data=>{if(active)setLearning(data);}).catch(()=>{if(active)setLearning(null);});void refresh();const timer=open?setInterval(()=>void refresh(),60000):null;return()=>{active=false;if(timer)clearInterval(timer);};},[open]);
  useEffect(()=>{if(!open)return;const handle=(e:KeyboardEvent)=>{if(e.key==='Escape')setOpen(false);};window.addEventListener('keydown',handle);return()=>window.removeEventListener('keydown',handle);},[open]);
  useEffect(()=>{if(!selectedCompanyWork)return;setOpen(true);setObjective(`Investigate this OrPaynter task: ${selectedCompanyWork.title}. Use the current public signals and task metadata; identify the smallest useful next step and missing evidence.`);},[selectedCompanyWork]);
  useEffect(()=>{if(!open||running||captureMode==='frozen')return;void capture();const timer=setInterval(()=>void capture(),60000);return()=>clearInterval(timer);},[open,running,captureMode]);
@@ -37,6 +41,8 @@ export default function OrPaynterWorkspace({revealed,selectedCompanyWork}:{revea
   {open && <section className="orpa-workspace" aria-label="OrPaynter intelligence workspace">
    <header><div><span className="orpa-eyebrow">WORLD PORTAL → SOURCED WORK</span><h2>Your world, with memory.</h2></div><button aria-label="Close OrPaynter workspace" onClick={()=>setOpen(false)}><X size={20}/></button></header>
    <div className="orpa-runtime"><Bot size={21}/><div><strong>{runtime?.ready?'Your Grok Bot is available':runtime?.installed?'Grok Bot needs sign-in':'Checking Grok Bot'}</strong><p>{runtime?.version?`v${runtime.version} · `:''}{runtime?.pluginCount||0} configured plugins · analysis only</p></div><span className={runtime?.ready?'ready':'unknown'}>{runtime?.ready?'READY':'CHECK'}</span></div>
+   <div className="orpa-runtime" data-learning-status={learning?.status||'unavailable'}><ShieldCheck size={21}/><div><strong>{learning?.status==='verified'?'Grok learning: updates verified':learning?.status==='incomplete'?'Grok learning: verification incomplete':'Grok learning evidence unavailable'}</strong><p>{learning?.sessionsKept!=null?`${learning.sessionsKept} retained sessions · ${learning.verifiedUpdates} verified instruction updates · ${learning.deferredActions} deferred actions`:'Checking the existing local learning record.'}</p></div><span className={learning?.status==='verified'?'ready':'unknown'}>{learning?.status==='verified'?'VERIFIED':'CHECK'}</span></div>
+   {learning?.runId&&<details className="orpa-records"><summary>Inspect existing learning</summary><p>Completed {learning.completedAt?new Date(learning.completedAt).toLocaleString():'time unverified'}. Current instructions checked {new Date(learning.checkedAt).toLocaleTimeString()}.</p><p>{learning.meaning} This read does not launch Grok, apply updates or authorize work.</p><button onClick={()=>save(learning,'orpaynter-grok-learning-status.json')}>Export learning evidence summary</button></details>}
    <p className="orpa-copy">Connect real work to public signals. Follow updating sources or freeze a capture to inspect the world as it was recorded. Grok reasons over the exact capture you choose.</p>
    <a className="orpa-cad-link" href="/orpaynter-cad/index.html" target="_blank" rel="noreferrer"><span><strong>Explore the public CAD pilot</strong><small>10 source footprints · DXF exports · stated accuracy</small></span><ArrowUpRight size={18}/></a>
    <div className="orpa-time-modes" role="group" aria-label="Source capture mode"><button aria-pressed={captureMode==='updating'} disabled={running||loading} onClick={()=>setCaptureMode('updating')}>Updating sources</button><button aria-pressed={captureMode==='frozen'} disabled={!snapshot||running||loading} onClick={()=>setCaptureMode('frozen')}>Freeze this capture</button>{run&&<button disabled={running||loading} onClick={()=>{setCaptureMode('frozen');void capture(run.snapshotId);}}>Open saved job capture</button>}</div>
