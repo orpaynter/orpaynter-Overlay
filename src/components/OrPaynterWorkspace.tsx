@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Bot, X, RefreshCw, Download, ArrowUpRight, ShieldCheck, Radio, FileSearch } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import OrPaynterMark from '@/components/OrPaynterMark';
 import type { CompanyWork } from '@/lib/orpaynter/company';
 import type { ObservationSnapshot } from '@/lib/orpaynter/observations';
 
@@ -32,9 +33,9 @@ export default function OrPaynterWorkspace({revealed,selectedCompanyWork}:{revea
  function save(value:unknown,name:string){const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
  const available=!!snapshot?.feeds.some(f=>f.status==='available'&&f.items.length);
  return <>
-  {revealed && <button className="orpa-launch orpa-overlay-launch" aria-label="Open OrPaynter workspace" onClick={show}><Bot size={21}/><span><strong>ORPAYNTER OVERLAY</strong><small>{run?.status==='completed'?'Grok job completed':runtime?.ready?'Grok ready · source-led analysis':runtime?.installed?'Grok installed · check sign-in':'Connecting existing Grok setup'}</small></span><ArrowUpRight size={17}/></button>}
+  {revealed && <button className="orpa-launch orpa-overlay-launch" aria-label="Open OrPaynter workspace" onClick={show}><OrPaynterMark variant="portal" className="w-6 h-6 shrink-0 object-contain"/><span><strong>WORLD PORTAL</strong><small>{run?.status==='completed'?'Grok job completed':runtime?.ready?'Grok ready · source-led analysis':runtime?.installed?'Grok installed · check sign-in':'Connecting existing Grok setup'}</small></span><ArrowUpRight size={17}/></button>}
   {open && <section className="orpa-workspace" aria-label="OrPaynter intelligence workspace">
-   <header><div><span className="orpa-eyebrow">ORPAYNTER OVERLAY → SOURCED WORK</span><h2>Your world, with memory.</h2></div><button aria-label="Close OrPaynter workspace" onClick={()=>setOpen(false)}><X size={20}/></button></header>
+   <header><div><span className="orpa-eyebrow">WORLD PORTAL → SOURCED WORK</span><h2>Your world, with memory.</h2></div><button aria-label="Close OrPaynter workspace" onClick={()=>setOpen(false)}><X size={20}/></button></header>
    <div className="orpa-runtime"><Bot size={21}/><div><strong>{runtime?.ready?'Your Grok Bot is available':runtime?.installed?'Grok Bot needs sign-in':'Checking Grok Bot'}</strong><p>{runtime?.version?`v${runtime.version} · `:''}{runtime?.pluginCount||0} configured plugins · analysis only</p></div><span className={runtime?.ready?'ready':'unknown'}>{runtime?.ready?'READY':'CHECK'}</span></div>
    <p className="orpa-copy">Connect real work to public signals. Follow updating sources or freeze a capture to inspect the world as it was recorded. Grok reasons over the exact capture you choose.</p>
    <a className="orpa-cad-link" href="/orpaynter-cad/index.html" target="_blank" rel="noreferrer"><span><strong>Explore the public CAD pilot</strong><small>10 source footprints · DXF exports · stated accuracy</small></span><ArrowUpRight size={18}/></a>

@@ -1069,7 +1069,7 @@ export default function Dashboard() {
 
 
             <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7 }} className="orpa-brand-splash relative w-32 h-32 mb-8 z-[2]">
-              <OrPaynterMark className="w-full h-full object-contain" />
+              <OrPaynterMark variant="portal" className="w-full h-full object-contain" />
             </motion.div>
 
             {/* ── OSIRIS title — letter-by-letter stagger ── */}
@@ -1097,7 +1097,7 @@ export default function Dashboard() {
                 className="overflow-hidden whitespace-nowrap"
               >
                 <p className="text-[11px] md:text-[10px] font-mono tracking-[0.5em] text-[var(--gold-primary)]" style={{ opacity: 0.8 }}>
-                  OVERLAY · A CONNECTED DIGITAL WORLD
+                  WORLD PORTAL · ORPAYNTER OVERLAY
                 </p>
               </motion.div>
             </div>
@@ -1323,8 +1323,8 @@ export default function Dashboard() {
         <div className="flex items-center gap-3 w-fit">
           <OrPaynterMark className="orpa-brand-mark w-10 h-10 md:w-12 md:h-12 shrink-0 object-contain" />
           <div className="flex flex-col items-start gap-0.5">
-            <h1 className="text-lg md:text-xl font-bold tracking-[0.4em] text-[#D4AF37] font-mono">ORPAYNTER OVERLAY</h1>
-            <span className="text-[9px] md:text-[10px] font-mono tracking-[0.2em] opacity-80 uppercase text-[#D4AF37]">ORPAYNTER, INC. · CONNECTED WORLD</span>
+            <h1 className="text-lg md:text-xl font-bold tracking-[0.4em] text-[#D4AF37] font-mono">WORLD PORTAL</h1>
+            <span className="text-[9px] md:text-[10px] font-mono tracking-[0.2em] opacity-80 uppercase text-[#D4AF37]">ORPAYNTER OVERLAY · ORPAYNTER, INC.</span>
           </div>
         </div>
         <div className="flex items-center gap-3 mt-1.5 pl-[44px] min-w-0 pr-4">

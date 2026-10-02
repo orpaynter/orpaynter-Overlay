@@ -1,0 +1,83 @@
+[
+  {
+    "repository": "CesiumGS/cesium",
+    "sha": "b8d3a36fe98a3e432eb89253c95d5f20e605e0f1",
+    "defaultBranch": "main",
+    "license": "Apache-2.0",
+    "archived": false,
+    "sourceFiles": [
+      {
+        "path": "LICENSE.md",
+        "bytes": 55679,
+        "url": "https://github.com/CesiumGS/cesium/blob/b8d3a36fe98a3e432eb89253c95d5f20e605e0f1/LICENSE.md"
+      },
+      {
+        "path": "packages/engine/Source/Scene/Cesium3DTileset.js",
+        "bytes": 144059,
+        "url": "https://github.com/CesiumGS/cesium/blob/b8d3a36fe98a3e432eb89253c95d5f20e605e0f1/packages/engine/Source/Scene/Cesium3DTileset.js"
+      },
+      {
+        "path": "packages/widgets/Source/Viewer/Viewer.js",
+        "bytes": 69908,
+        "url": "https://github.com/CesiumGS/cesium/blob/b8d3a36fe98a3e432eb89253c95d5f20e605e0f1/packages/widgets/Source/Viewer/Viewer.js"
+      }
+    ]
+  },
+  {
+    "repository": "langchain-ai/langgraph",
+    "sha": "157a06dda988d85afeb8751ff27b35ab3f4f8bf4",
+    "defaultBranch": "main",
+    "license": "MIT",
+    "archived": false,
+    "sourceFiles": [
+      {
+        "path": "LICENSE",
+        "bytes": 1072,
+        "url": "https://github.com/langchain-ai/langgraph/blob/157a06dda988d85afeb8751ff27b35ab3f4f8bf4/LICENSE"
+      },
+      {
+        "path": "libs/langgraph/langgraph/types.py",
+        "bytes": 37147,
+        "url": "https://github.com/langchain-ai/langgraph/blob/157a06dda988d85afeb8751ff27b35ab3f4f8bf4/libs/langgraph/langgraph/types.py"
+      }
+    ]
+  },
+  {
+    "repository": "modelcontextprotocol/python-sdk",
+    "sha": "17aaf2557205c3768ed61831398a4e074b21e96d",
+    "defaultBranch": "main",
+    "license": "MIT",
+    "archived": false,
+    "sourceFiles": [
+      {
+        "path": "LICENSE",
+        "bytes": 1071,
+        "url": "https://github.com/modelcontextprotocol/python-sdk/blob/17aaf2557205c3768ed61831398a4e074b21e96d/LICENSE"
+      },
+      {
+        "path": "README.md",
+        "bytes": 4561,
+        "url": "https://github.com/modelcontextprotocol/python-sdk/blob/17aaf2557205c3768ed61831398a4e074b21e96d/README.md"
+      }
+    ]
+  },
+  {
+    "repository": "iTwin/itwinjs-core",
+    "sha": "7d141a6d32c148d350783c65fa7acaaa5548a79d",
+    "defaultBranch": "master",
+    "license": "MIT",
+    "archived": false,
+    "sourceFiles": [
+      {
+        "path": "LICENSE.md",
+        "bytes": 1114,
+        "url": "https://github.com/iTwin/itwinjs-core/blob/7d141a6d32c148d350783c65fa7acaaa5548a79d/LICENSE.md"
+      },
+      {
+        "path": "README.md",
+        "bytes": 5549,
+        "url": "https://github.com/iTwin/itwinjs-core/blob/7d141a6d32c148d350783c65fa7acaaa5548a79d/README.md"
+      }
+    ]
+  }
+]
