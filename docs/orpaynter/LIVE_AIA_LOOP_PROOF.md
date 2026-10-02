@@ -1,6 +1,6 @@
 # Live AIA execution-to-learning proof
 
-Evidence snapshot: October 2, 2026. **Full loop acceptance remains blocked.**
+Evidence snapshot: October 2, 2026. **The bounded engineering execution-to-learning loop is closed. Full GACC acceptance remains blocked.**
 
 ## Established live
 
@@ -38,14 +38,24 @@ The persisted receipt is `EX-GACC-c90e7abc265eab6d4dc1ad602e715ea7e3c481cf`. The
 
 An execution retry returned the same persisted result. Read-back verification reconstructed its bytes and bindings. Standalone verification of the exported proof also passed without runtime or database access; a modified measured outcome was rejected as `MANIFEST_TAMPER`. Verification uses the trusted canonical HMAC key, and does not certify the independent external truth of the observation.
 
-A fresh actual observation produced second package `DP-GACC-abbd8308d94793b88e6f05a9427b44b122dcae30`, version 1. Its validator adopted the verified predecessor types: `http_status` is a number, `observed_at`, `provider` and `source_url` are strings, and `ready_response` is an object. This package is pending its own actual owner review.
+A fresh actual observation produced second package `DP-GACC-abbd8308d94793b88e6f05a9427b44b122dcae30`, version 1. Its validator adopted the verified predecessor types: `http_status` is a number, `observed_at`, `provider` and `source_url` are strings, and `ready_response` is an object. The owner subsequently authorized this exact second test after a plain-language clarification. Its canonical review, execution and verification completed, as recorded below.
 
-## Still required
+## Live Cycle N+1 and closed bounded loop
 
-A concrete, reviewed execution package must bind the actual input, validated capability and declared action scope. Only then can a real execution produce an artifact and receipt. Independent reconstruction must validate that output and its approval bindings, followed by a measured outcome, reconciliation and permitted learning. A new real input must consume verified learning in a second bounded cycle while retaining the authority gates.
+The new input SHA-256 differs from Cycle N. Its prepared validator includes the exact verified predecessor learning hash and field-type contract. Canonical review produced approved version 2; execution returned HTTP 200 and generated receipt `EX-GACC-abbd8308d94793b88e6f05a9427b44b122dcae30`.
 
-The current learning slice measures JSON field and value preservation of actual runtime observations. It cannot establish better forecasts, customer results, market novelty or broader autonomous judgment. Missing values remain unknown.
+The measured second output preserved source values, had no unknown required fields and met completion. It passed the adopted type constraint. Result evidence SHA-256 is `e43a243984b9200b77d1e67001d18e20585d7307d2c2f31c16ec43c4684b01bb`; second learning SHA-256 is `6ea7f4ecf52903c9b7a0fdc5511f8a90368fe547a14d3bd0cf71967403023bbf`.
+
+Retry retained the same result; read-back reconstructed the persisted consequence. Standalone verification of the second exported proof, including its predecessor, passed without runtime or database access. A modified measured outcome was rejected as `MANIFEST_TAMPER`.
+
+This closes the demonstrated chain: attributable objective → exact human approval → bounded execution → receipt → reconstructed outcome → reconciliation → permitted schema learning → reviewed new input → second verified execution. It proves two connected real engineering runs on actual HTTP observations.
+
+## Wider acceptance and commercial proof
+
+Full GACC remains BLOCKED; novelty remains UNVERIFIED. The measured learning is schema-contract reuse, not improved forecasts or general judgment. The source observation's external truth and long-history reconstruction performance require separate proof. No customer revenue is established by this engineering result.
+
+The published website now offers four scoped product inquiries under OrPaynter, Inc. by Oliver Paynter / @orpaynter. The next commercial proof is an actual customer request, accepted written scope, the existing secure payment path when ready, a delivered artifact and an independently verified customer outcome. Keep those milestones distinct from site deployment and engineering tests.
 
 ## Evidence and privacy boundary
 
-Owner login and setup were performed by an authorized engineering agent using the provisioned actual owner account. No human approval or independent reviewer was fabricated. Secrets, raw private account material and company records are omitted from this public snapshot. The protected engineering preview is not public production or a customer fulfillment service.
+Owner login and setup were performed by an authorized engineering agent using the provisioned actual owner account. The actual owner decisions were recorded; no independent reviewer identity was fabricated. Secrets, raw private account material and company records are omitted from this public snapshot. The protected engineering preview is not public production or a customer fulfillment service.
