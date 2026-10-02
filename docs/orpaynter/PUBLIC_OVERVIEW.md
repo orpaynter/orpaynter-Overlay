@@ -25,3 +25,7 @@ Shared location/time/source context and scoped MCP connectors come next. Full wo
 The original globe foundation is OSIRIS by simplifaisoul and contributors, copied at `4ba7184ff31db06cb33c47de029c2d4255806458`. Its full MIT notice is preserved; original OrPaynter contributions use MIT. MapLibre, satellite.js, other libraries, public providers, camera operators, and catalogue contributors retain credit and their own terms. [Full credits](../../CREDITS.md).
 
 The public information pages are intended for [orpaynter.ai/overlay](https://orpaynter.ai/overlay) and [orpaynter.com/overlay](https://orpaynter.com/overlay). The owner workstation, private company captures, credentials, model job records, and provider entitlements stay separate from shared source and public marketing pages. AIA remains canonical authority for consequential company work.
+
+## Existing learning, now visible
+
+Grok already completed session-history learning with three applied instruction edits from 25 retained sessions. World Portal now verifies those edits against the current local instructions. The canonical AIA preview separately completed two owner-approved live cycles and reused verified field types. See [Grok learning](GROK_LEARNING_EVIDENCE.md) and [live AIA outcomes](LIVE_AIA_LOOP_PROOF.md).
