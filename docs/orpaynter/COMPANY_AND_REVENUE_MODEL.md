@@ -76,7 +76,7 @@ The next commercial proof is one attributable request, one accepted written scop
 
 ## Completion and learning evidence
 
-Canonical AIA admission is now live in a protected engineering preview with persistent storage. The real owner's objective survives redeployment and reconstructs its evidence chain. A real readiness observation completed a six-stage deterministic analysis workflow. The bounded execution, receipt, verification, reconciliation and learning bridge is deployed and tested. A concrete live packet awaits actual owner review before execution; full GACC acceptance remains blocked.
+Canonical AIA admission is now live in a protected engineering preview with persistent storage. The real owner's objective survives redeployment and reconstructs its evidence chain. A real readiness observation completed a six-stage deterministic analysis workflow. The bounded execution, receipt, verification, reconciliation and learning bridge is deployed and tested. The owner approved the first exact packet, and Cycle N executed with persisted, independently reconstructed output and learning. A fresh second package has adopted that learning and awaits its own review; full GACC acceptance remains blocked.
 
 See [the live AIA proof snapshot](LIVE_AIA_LOOP_PROOF.md) and [the existing recovery build report](BUILD_REPORT.md). No claim of being first, bulletproof, continuously self-improving, or a new market category is established by these mechanisms.
 
