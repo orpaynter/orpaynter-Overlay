@@ -145,7 +145,7 @@ export default function DocsClient() {
             <OrPaynterMark className="w-7 h-7 object-contain" />
             <span className="flex flex-col leading-none">
               <span className="text-[12px] font-bold tracking-[0.3em] text-[var(--gold-primary)] font-mono">
-                ORPAYNTER OVERLAY
+                WORLD PORTAL
               </span>
               <span className="text-[9px] font-mono tracking-[0.22em] text-[var(--text-muted)] uppercase mt-[3px]">
                 Foundation docs

@@ -11,7 +11,7 @@ try {
   const desk = page.getByRole('region', { name: 'OrPaynter company operations' });
   await desk.getByRole('button', { name: 'Company operations', exact: true }).waitFor({ timeout: 60000 });
   await page.waitForTimeout(12000);
-  check('original OrPaynter mark renders', await page.getByRole('img', { name: 'OrPaynter orbital O/P mark' }).first().evaluate(e => e.complete && e.naturalWidth > 0));
+  check('approved Swiss company mark renders', await page.getByRole('img', { name: 'OrPaynter Swiss O/P mark' }).first().evaluate(e => e.complete && e.naturalWidth > 0));
   check('company preset is active', await desk.getAttribute('data-operating-profile') === 'company');
   check('real globe still renders', await page.locator('canvas.maplibregl-canvas').count() === 1);
   let params = new URL(page.url()).searchParams;
@@ -24,10 +24,10 @@ try {
   check('profile switching preserves other URL context', params.get('purpose') === 'operations');
   await desk.getByRole('button', { name: 'Company operations', exact: true }).click();
   await page.waitForTimeout(2000);
-  await page.screenshot({ path: 'orpaynter-evidence/company-setup-desktop.png' });
+  await page.screenshot({ path: 'orpaynter-evidence/world-portal-brand-desktop.png' });
   const manifest = await (await page.request.get('http://127.0.0.1:4180/manifest.json')).json();
-  check('install identity and start view updated', manifest.name.includes('OrPaynter Overlay') && manifest.start_url === '/?profile=company' && manifest.icons.every(i => i.src.startsWith('/brand/orpaynter-')));
-  check('browser icon uses new brand', await page.locator('link[rel="icon"][href="/brand/orpaynter-32.png"]').count() > 0);
+  check('install identity and start view updated', manifest.name.includes('World Portal') && manifest.start_url === '/?profile=company' && manifest.icons.every(i => i.src.startsWith('/brand/world-portal-')));
+  check('browser icon uses new brand', await page.locator('link[rel="icon"][href="/brand/world-portal-32.png"]').count() > 0);
   await page.goto('http://127.0.0.1:4180/?layers=satellites&purpose=shared', { waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(8500);
   check('existing shared selection remains custom', await desk.getAttribute('data-operating-profile') === 'custom' && new URL(page.url()).searchParams.get('layers') === 'satellites');
@@ -35,8 +35,8 @@ try {
   await page.goto('http://127.0.0.1:4180/?profile=company', { waitUntil: 'domcontentloaded' });
   await page.getByRole('button', { name: 'Open company operations' }).click({ timeout: 60000 });
   check('company profile controls accessible on mobile', await desk.getByRole('button', { name: 'World exploration', exact: true }).isVisible());
-  await page.screenshot({ path: 'orpaynter-evidence/company-setup-mobile.png' });
+  await page.screenshot({ path: 'orpaynter-evidence/world-portal-brand-mobile.png' });
   check('no uncaught browser errors', errors.length === 0);
-  await fs.writeFile('orpaynter-evidence/company-setup-browser-qa.json', JSON.stringify({ checkedAt: new Date().toISOString(), passed: checks.length, checks, errors }, null, 2));
+  await fs.writeFile('orpaynter-evidence/world-portal-brand-browser-qa.json', JSON.stringify({ checkedAt: new Date().toISOString(), passed: checks.length, checks, errors }, null, 2));
   console.log(JSON.stringify({ passed: checks.length }));
 } finally { await browser.close(); }

@@ -1,0 +1,165 @@
+[
+  {
+    "repository": "bilawalsidhu/gods-eye-view",
+    "sha": "e7707d9a0f34d9fbffc300023c319f95caa5be30",
+    "defaultBranch": "main",
+    "license": "NOASSERTION",
+    "archived": false,
+    "pushedAt": "2026-10-01T08:23:04Z",
+    "files": [
+      {
+        "path": "LICENSE",
+        "bytes": 3281,
+        "url": "https://github.com/bilawalsidhu/gods-eye-view/blob/e7707d9a0f34d9fbffc300023c319f95caa5be30/LICENSE"
+      },
+      {
+        "path": "README.md",
+        "bytes": 54605,
+        "url": "https://github.com/bilawalsidhu/gods-eye-view/blob/e7707d9a0f34d9fbffc300023c319f95caa5be30/README.md"
+      },
+      {
+        "path": "docs/CURRENT-STATE.md",
+        "bytes": 456076,
+        "url": "https://github.com/bilawalsidhu/gods-eye-view/blob/e7707d9a0f34d9fbffc300023c319f95caa5be30/docs/CURRENT-STATE.md"
+      },
+      {
+        "path": "package.json",
+        "bytes": 11163,
+        "url": "https://github.com/bilawalsidhu/gods-eye-view/blob/e7707d9a0f34d9fbffc300023c319f95caa5be30/package.json"
+      },
+      {
+        "path": "src/data/contextStore.js",
+        "bytes": 7092,
+        "url": "https://github.com/bilawalsidhu/gods-eye-view/blob/e7707d9a0f34d9fbffc300023c319f95caa5be30/src/data/contextStore.js"
+      },
+      {
+        "path": "src/mapStackController.js",
+        "bytes": 1289,
+        "url": "https://github.com/bilawalsidhu/gods-eye-view/blob/e7707d9a0f34d9fbffc300023c319f95caa5be30/src/mapStackController.js"
+      },
+      {
+        "path": "src/renderGovernor.js",
+        "bytes": 5333,
+        "url": "https://github.com/bilawalsidhu/gods-eye-view/blob/e7707d9a0f34d9fbffc300023c319f95caa5be30/src/renderGovernor.js"
+      },
+      {
+        "path": "src/maps/controller.js",
+        "bytes": 15150,
+        "url": "https://github.com/bilawalsidhu/gods-eye-view/blob/e7707d9a0f34d9fbffc300023c319f95caa5be30/src/maps/controller.js"
+      },
+      {
+        "path": "src/maps/defaultSources.js",
+        "bytes": 2385,
+        "url": "https://github.com/bilawalsidhu/gods-eye-view/blob/e7707d9a0f34d9fbffc300023c319f95caa5be30/src/maps/defaultSources.js"
+      },
+      {
+        "path": "server/providers/aircraft/opensky.js",
+        "bytes": 26103,
+        "url": "https://github.com/bilawalsidhu/gods-eye-view/blob/e7707d9a0f34d9fbffc300023c319f95caa5be30/server/providers/aircraft/opensky.js"
+      },
+      {
+        "path": "DATA_SOURCES.md",
+        "bytes": 73321,
+        "url": "https://github.com/bilawalsidhu/gods-eye-view/blob/e7707d9a0f34d9fbffc300023c319f95caa5be30/DATA_SOURCES.md"
+      }
+    ],
+    "licenseNote": "Source code MIT; bundled data/assets have separate terms including noncommercial datasets"
+  },
+  {
+    "repository": "koala73/worldmonitor",
+    "sha": "0a74f70d8e0f6900bc5af967923f3127d44f83ad",
+    "defaultBranch": "main",
+    "license": "AGPL-3.0",
+    "archived": false,
+    "pushedAt": "2026-10-01T23:27:24Z",
+    "files": [
+      {
+        "path": "LICENSE",
+        "bytes": 34865,
+        "url": "https://github.com/koala73/worldmonitor/blob/0a74f70d8e0f6900bc5af967923f3127d44f83ad/LICENSE"
+      },
+      {
+        "path": "README.md",
+        "bytes": 13213,
+        "url": "https://github.com/koala73/worldmonitor/blob/0a74f70d8e0f6900bc5af967923f3127d44f83ad/README.md"
+      },
+      {
+        "path": "package.json",
+        "bytes": 25062,
+        "url": "https://github.com/koala73/worldmonitor/blob/0a74f70d8e0f6900bc5af967923f3127d44f83ad/package.json"
+      },
+      {
+        "path": "src/config/feeds.ts",
+        "bytes": 130319,
+        "url": "https://github.com/koala73/worldmonitor/blob/0a74f70d8e0f6900bc5af967923f3127d44f83ad/src/config/feeds.ts"
+      },
+      {
+        "path": "docs/api/MarketService.openapi.yaml",
+        "bytes": 278418,
+        "url": "https://github.com/koala73/worldmonitor/blob/0a74f70d8e0f6900bc5af967923f3127d44f83ad/docs/api/MarketService.openapi.yaml"
+      },
+      {
+        "path": "docs/api/NewsService.openapi.yaml",
+        "bytes": 60452,
+        "url": "https://github.com/koala73/worldmonitor/blob/0a74f70d8e0f6900bc5af967923f3127d44f83ad/docs/api/NewsService.openapi.yaml"
+      }
+    ]
+  },
+  {
+    "repository": "unclecode/crawl4ai",
+    "sha": "e5d2e786d1a101225f3f6a3e6fd344d76eeb13af",
+    "defaultBranch": "main",
+    "license": "Apache-2.0",
+    "archived": false,
+    "pushedAt": "2026-09-25T06:37:14Z",
+    "files": [
+      {
+        "path": "LICENSE",
+        "bytes": 9998,
+        "url": "https://github.com/unclecode/crawl4ai/blob/e5d2e786d1a101225f3f6a3e6fd344d76eeb13af/LICENSE"
+      },
+      {
+        "path": "README.md",
+        "bytes": 26926,
+        "url": "https://github.com/unclecode/crawl4ai/blob/e5d2e786d1a101225f3f6a3e6fd344d76eeb13af/README.md"
+      },
+      {
+        "path": "crawl4ai/async_webcrawler.py",
+        "bytes": 57966,
+        "url": "https://github.com/unclecode/crawl4ai/blob/e5d2e786d1a101225f3f6a3e6fd344d76eeb13af/crawl4ai/async_webcrawler.py"
+      }
+    ],
+    "licenseNote": "Apache-2.0 text plus additional attribution requirement in inspected LICENSE"
+  },
+  {
+    "repository": "PDAL/PDAL",
+    "sha": "0fffb222dc9f60543a99ed93931a63d9cfe24456",
+    "defaultBranch": "master",
+    "license": "NOASSERTION",
+    "archived": false,
+    "pushedAt": "2026-10-01T20:05:28Z",
+    "files": [
+      {
+        "path": "LICENSE.txt",
+        "bytes": 1896,
+        "url": "https://github.com/PDAL/PDAL/blob/0fffb222dc9f60543a99ed93931a63d9cfe24456/LICENSE.txt"
+      },
+      {
+        "path": "README.md",
+        "bytes": 1337,
+        "url": "https://github.com/PDAL/PDAL/blob/0fffb222dc9f60543a99ed93931a63d9cfe24456/README.md"
+      },
+      {
+        "path": "filters/ReprojectionFilter.cpp",
+        "bytes": 6947,
+        "url": "https://github.com/PDAL/PDAL/blob/0fffb222dc9f60543a99ed93931a63d9cfe24456/filters/ReprojectionFilter.cpp"
+      },
+      {
+        "path": "doc/stages/readers.copc.md",
+        "bytes": 4608,
+        "url": "https://github.com/PDAL/PDAL/blob/0fffb222dc9f60543a99ed93931a63d9cfe24456/doc/stages/readers.copc.md"
+      }
+    ],
+    "licenseNote": "LICENSE.txt specifies BSD terms"
+  }
+]
