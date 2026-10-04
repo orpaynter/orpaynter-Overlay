@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { stealthFetch } from '@/lib/stealthFetch';
-import { cachedSource } from '@/lib/sourceCache';
+import { cachedSource, sourceCacheState } from '@/lib/sourceCache';
 
 /**
  * OSIRIS — Severe Weather & Anomalies API
@@ -159,12 +159,17 @@ const loadEvents = cachedSource<WeatherEvent>('weather:events', collectEvents, 3
 export async function GET() {
   try {
     const events = await loadEvents();
+    const cache = sourceCacheState('weather:events');
     return NextResponse.json({
       events,
       total: events.length,
-      timestamp: new Date().toISOString(),
+      timestamp: cache.fetchedAt,
+      checkedAt: new Date().toISOString(),
+      source: cache.status === 'fresh' ? 'weather' : `weather+${cache.status}`,
+      cacheStatus: cache.status,
+      ...(cache.status === 'fresh' ? {} : { warning: cache.status === 'stale' ? 'Weather refresh failed; retained observations keep their original retrieval time.' : 'Weather providers did not return a usable observation.' }),
     }, {
-      headers: { 'Cache-Control': 'public, s-maxage=120, stale-while-revalidate=600' },
+      headers: { 'Cache-Control': cache.status === 'fresh' ? 'public, s-maxage=120, stale-while-revalidate=600' : 'no-store' },
     });
   } catch (error) {
     console.error('Weather API error:', error);
@@ -172,30 +177,50 @@ export async function GET() {
   }
 }
 
+/** Bound headers AND body parsing, including providers that ignore cancellation. */
+async function readWeatherProvider<T>(request: (signal: AbortSignal) => Promise<Response>, decode: (response: Response) => Promise<T>): Promise<T> {
+  const controller = new AbortController();
+  let timer: ReturnType<typeof setTimeout>;
+  const deadline = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => {
+      const error = new Error('Weather provider read timed out.');
+      reject(error);
+      controller.abort(error);
+    }, 6_000);
+  });
+  try {
+    return await Promise.race([
+      Promise.resolve().then(() => request(controller.signal)).then(response => {
+        if (!response.ok) throw new Error('Weather provider returned an unsuccessful response.');
+        return decode(response);
+      }),
+      deadline,
+    ]);
+  } finally {
+    clearTimeout(timer!);
+  }
+}
+
 async function collectEvents(): Promise<WeatherEvent[]> {
   {
     const [eonetRes, nwsRes, gdacsRes] = await Promise.allSettled([
-      stealthFetch('https://eonet.gsfc.nasa.gov/api/v3/events?status=open&limit=100', {
-        signal: AbortSignal.timeout(10000),
-      }),
-      fetch('https://api.weather.gov/alerts/active?status=actual&message_type=alert', {
+      readWeatherProvider<EonetResponse>(signal => stealthFetch('https://eonet.gsfc.nasa.gov/api/v3/events?status=open&limit=100', { signal }), response => response.json()),
+      readWeatherProvider<NwsResponse>(signal => fetch('https://api.weather.gov/alerts/active?status=actual&message_type=alert', {
         headers: {
           Accept: 'application/geo+json',
           'User-Agent': 'OSIRIS Severe Weather Layer',
         },
-        signal: AbortSignal.timeout(10000),
-      }),
-      stealthFetch('https://www.gdacs.org/xml/rss.xml', {
-        signal: AbortSignal.timeout(10000),
-      }),
+        signal,
+      }), response => response.json()),
+      readWeatherProvider<string>(signal => stealthFetch('https://www.gdacs.org/xml/rss.xml', { signal }), response => response.text()),
     ]);
 
     const events: WeatherEvent[] = [];
     let providerSucceeded = false;
 
-    if (eonetRes.status === 'fulfilled' && eonetRes.value.ok) {
+    if (eonetRes.status === 'fulfilled') {
       try {
-        const data = (await eonetRes.value.json()) as EonetResponse;
+        const data = eonetRes.value;
         providerSucceeded = true;
 
         for (const event of data.events || []) {
@@ -248,9 +273,9 @@ async function collectEvents(): Promise<WeatherEvent[]> {
       }
     }
 
-    if (nwsRes.status === 'fulfilled' && nwsRes.value.ok) {
+    if (nwsRes.status === 'fulfilled') {
       try {
-        const data = (await nwsRes.value.json()) as NwsResponse;
+        const data = nwsRes.value;
         providerSucceeded = true;
 
         for (const feature of data.features || []) {
@@ -279,9 +304,9 @@ async function collectEvents(): Promise<WeatherEvent[]> {
       }
     }
 
-    if (gdacsRes.status === 'fulfilled' && gdacsRes.value.ok) {
+    if (gdacsRes.status === 'fulfilled') {
       try {
-        const xml = await gdacsRes.value.text();
+        const xml = gdacsRes.value;
         events.push(...parseGdacsRss(xml));
         providerSucceeded = true;
       } catch (error) {

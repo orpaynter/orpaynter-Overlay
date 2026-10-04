@@ -19,6 +19,8 @@ interface Entry<T> {
   data: T[];
   expiresAt: number;
   inflight: Promise<T[]> | null;
+  fetchedAt: number | null;
+  refreshFailed: boolean;
 }
 
 const store = new Map<string, Entry<unknown>>();
@@ -63,20 +65,20 @@ export function cachedSource<T>(
         const data = await fetcher();
         // An empty result is treated as a failed refresh: keep whatever we had.
         if (data.length === 0 && entry?.data.length) {
-          store.set(key, { data: entry.data, expiresAt: now + ttlMs, inflight: null });
+          store.set(key, { data: entry.data, expiresAt: now + ttlMs, inflight: null, fetchedAt: entry.fetchedAt, refreshFailed: true });
           return entry.data;
         }
-        store.set(key, { data, expiresAt: now + ttlMs, inflight: null });
+        store.set(key, { data, expiresAt: now + ttlMs, inflight: null, fetchedAt: Date.now(), refreshFailed: false });
         return data;
       } catch (e) {
         if (entry?.data.length) {
           console.warn(`[OSIRIS] ${key} refresh failed — serving ${entry.data.length} cached cameras`);
           // Retry sooner than a full TTL, but don't hammer the failing upstream.
-          store.set(key, { data: entry.data, expiresAt: now + 60_000, inflight: null });
+          store.set(key, { data: entry.data, expiresAt: now + 60_000, inflight: null, fetchedAt: entry.fetchedAt, refreshFailed: true });
           return entry.data;
         }
         console.warn(`[OSIRIS] ${key} fetch failed with no cache to fall back on:`, e);
-        store.set(key, { data: [], expiresAt: now + 60_000, inflight: null });
+        store.set(key, { data: [], expiresAt: now + 60_000, inflight: null, fetchedAt: null, refreshFailed: true });
         return [];
       }
     })();
@@ -85,6 +87,8 @@ export function cachedSource<T>(
       data: entry?.data ?? [],
       expiresAt: entry?.expiresAt ?? 0,
       inflight,
+      fetchedAt: entry?.fetchedAt ?? null,
+      refreshFailed: entry?.refreshFailed ?? false,
     } as Entry<unknown>);
     evictIfNeeded();
 
@@ -113,6 +117,16 @@ export function isStale(key: string): boolean {
   return !entry || Date.now() >= entry.expiresAt;
 }
 
+/** Original successful retrieval time; a failed refresh never makes old data fresh. */
+export function sourceCacheState(key: string): { status: 'fresh' | 'stale' | 'unavailable'; fetchedAt: string | null } {
+  const entry = store.get(key);
+  if (!entry || entry.fetchedAt === null) return { status: 'unavailable', fetchedAt: null };
+  return {
+    status: entry.refreshFailed || Date.now() >= entry.expiresAt ? 'stale' : 'fresh',
+    fetchedAt: new Date(entry.fetchedAt).toISOString(),
+  };
+}
+
 /**
  * Install data the process did not fetch — a catalogue restored from disk.
  * Serving that at boot is the difference between a map that is populated on the
@@ -122,7 +136,7 @@ export function seedSource<T>(key: string, data: T[], ttlMs: number = DEFAULT_TT
   if (!data.length) return;
   const entry = store.get(key);
   if (entry?.inflight) return; // a live fetch already supersedes the snapshot
-  store.set(key, { data, expiresAt: Date.now() + ttlMs, inflight: null } as Entry<unknown>);
+  store.set(key, { data, expiresAt: Date.now() + ttlMs, inflight: null, fetchedAt: Date.now(), refreshFailed: false } as Entry<unknown>);
   evictIfNeeded();
 }
 
