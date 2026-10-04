@@ -5,7 +5,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 const httpJson = vi.fn();
 vi.mock('@/lib/httpJson', () => ({ httpJson: (...args: unknown[]) => httpJson(...args), OSIRIS_UA: 'test' }));
 
-import { current, stillHolding, itemId, amountOf, placeAt, type WdStatement } from './route';
+import { current, stillHolding, itemId, amountOf, placeAt, type WdStatement } from './handler';
 
 /* Wikidata keeps every officeholder a country ever had on the same property,
    so picking the right statement is the whole job. Shapes below are trimmed
