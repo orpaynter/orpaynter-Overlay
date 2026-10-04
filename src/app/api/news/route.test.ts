@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { scoreRisk, findCoords, mergeCrossPosts, recentPosts, wirePost, sourceRef, type ChannelPost, type RssItem } from './route';
+import { scoreRisk, findCoords, mergeCrossPosts, recentPosts, wirePost, sourceRef, type ChannelPost, type RssItem } from './handler';
 import type { TelegramPost } from '@/lib/telegram';
 
 describe('scoreRisk', () => {
