@@ -1,10 +1,11 @@
-import { describe, it, expect, beforeEach } from 'vitest';
-import { cachedSource, clearSourceCache } from './sourceCache';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { cachedSource, clearSourceCache, sourceCacheState } from './sourceCache';
 
 type Cam = { id: string };
 const cam = (id: string): Cam => ({ id });
 
 beforeEach(() => clearSourceCache());
+afterEach(() => vi.useRealTimers());
 
 describe('cachedSource', () => {
   it('fetches once and serves the cached list afterwards', async () => {
@@ -75,5 +76,40 @@ describe('cachedSource', () => {
     const b = cachedSource<Cam>('t7b', async () => [cam('b')]);
     expect(await a()).toEqual([cam('a')]);
     expect(await b()).toEqual([cam('b')]);
+  });
+
+  it('retains the successful retrieval time across failed and empty refreshes', async () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2026-10-04T10:00:00Z'));
+    let mode: 'ok' | 'fail' | 'empty' = 'ok';
+    const load = cachedSource<Cam>('provenance', async () => {
+      if (mode === 'fail') throw new Error('offline');
+      return mode === 'empty' ? [] : [cam('good')];
+    }, 10);
+    await load();
+    const original = sourceCacheState('provenance');
+    expect(original.status).toBe('fresh');
+    mode = 'fail';
+    await vi.advanceTimersByTimeAsync(11);
+    await load();
+    expect(sourceCacheState('provenance')).toEqual({ ...original, status: 'stale' });
+    mode = 'empty';
+    await vi.advanceTimersByTimeAsync(60_001);
+    await load();
+    expect(sourceCacheState('provenance')).toEqual({ ...original, status: 'stale' });
+    mode = 'ok';
+    await vi.advanceTimersByTimeAsync(11);
+    await load();
+    expect(sourceCacheState('provenance').status).toBe('fresh');
+    expect(sourceCacheState('provenance').fetchedAt).not.toBe(original.fetchedAt);
+  });
+
+  it('distinguishes a successfully retrieved empty result from no observation', async () => {
+    expect(sourceCacheState('empty')).toEqual({ status: 'unavailable', fetchedAt: null });
+    await cachedSource<Cam>('empty', async () => [])();
+    expect(sourceCacheState('empty').status).toBe('fresh');
+    expect(sourceCacheState('empty').fetchedAt).not.toBeNull();
+    await cachedSource<Cam>('failed', async () => { throw new Error('offline'); })();
+    expect(sourceCacheState('failed')).toEqual({ status: 'unavailable', fetchedAt: null });
   });
 });
