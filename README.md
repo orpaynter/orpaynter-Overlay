@@ -37,6 +37,8 @@ This is a derivative of [OSIRIS by simplifaisoul and contributors](https://githu
 
 Source repository: [orpaynter/orpaynter-Overlay](https://github.com/orpaynter/orpaynter-Overlay). See [the public platform overview](docs/orpaynter/PUBLIC_OVERVIEW.md) for current proof and roadmap. Private records, credentials, captured company context, saved model jobs, and provider subscriptions are not part of the distributed source. Publicly reachable information remains subject to its provider's terms.
 
+Repository operators: [ruleset readiness and activation runbook](docs/orpaynter/REPOSITORY_GOVERNANCE.md).
+
 ## Proof
 
 See [the build report](docs/orpaynter/BUILD_REPORT.md). Unit tests run with `npm test`; local browser checks use Playwright. Paid Grok jobs require an operator action. Recovery does not dispatch customers, promote modeled geometry into measured CAD, or grant new authority.
