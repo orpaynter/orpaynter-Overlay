@@ -1,0 +1,862 @@
+{
+  "label": "PUBLIC / DEMO - NOT A REAL CLAIM",
+  "demo_label": "DP-PUBLIC-DEMO-2026-11-09-SOUTH-TEXAS-FLOOD",
+  "schema": "https://schemas.orpaynter.com/decision-package/v0.2/decision-package.schema.json",
+  "schema_version": "0.2.0",
+  "package_hash": "9fc9a2f86d576a7af5abe83f2b5adb863406b74246b90eac3538e83af063bb8d",
+  "package_hash_method": "SHA-256 of canonical JSON (sort_keys, compact separators) of the 23-field package object, same method as claimflow/trae/decision_package.py seal_package(); recorded alongside the package because v0.2 has no package_hash field",
+  "scenario": 3,
+  "event_window": "2026-11-07 to 2026-11-09 (live on 2026-11-09)",
+  "first_scenario_package_id": "37c1fce8-e2b9-580e-b783-2c2010736e48",
+  "second_scenario_package_id": "fda2704f-987c-5f0f-91a2-56850e7b8adb",
+  "approval_status": "APPROVED - Oliver said yes by voice on 2026-11-09 (21:34 EST, re-confirmed 21:46 EST); sealed receipt issued - see sealed_receipt_scenario3.json",
+  "package": {
+    "schema_version": "0.2.0",
+    "package_id": "9499e23a-9e4a-55f9-ae6a-6765e062f773",
+    "package_type": "claim_review",
+    "lifecycle_state": "evidence_ready",
+    "tenant_context": {
+      "tenant_id": "public-demo",
+      "principal_id": "user-demo-oliver",
+      "isolation_mode": "application_filter",
+      "storage_prefix": "public-demo/claims/demo-south-texas-flood-2026-11-09",
+      "production_rls_required": true
+    },
+    "trigger": {
+      "event_type": "public_storm_event_sensed",
+      "initiated_by": {
+        "actor_type": "agent",
+        "actor_id": "orpaynter-public-demo",
+        "role": "sense",
+        "runtime": "python"
+      },
+      "occurred_at": "2026-11-09T01:46:00Z",
+      "source_event_id": "DP-PUBLIC-DEMO-2026-11-09-SOUTH-TEXAS-FLOOD"
+    },
+    "objective": "PUBLIC / DEMO - NOT A REAL CLAIM. LIVE public-data case, Mon Nov 9, 2026: a multi-source, multi-office South Texas flood system (Nov 7-9) sensed through the globe/Overlay view - flash flood warnings, river flood warnings and forecasts, an excessive rainfall outlook, and a conflicting severe-weather classification - preserved with provenance in a DecisionPackage, then held. Approve for inspection only if a real property in this area were ever presented by a real owner. No filing, no repair, no payment, no contact with any owner. Nothing is authorised until matched evidence, correlation, two-layer validation, and human approval are complete.",
+    "subject": {
+      "domain": "insurance_claim_review",
+      "entity_type": "claim",
+      "entity_id": "demo-south-texas-flood-2026-11-09",
+      "identity_assertions": [
+        {
+          "field": "claim_id",
+          "normalized_value": "demo-south-texas-flood-2026-11-09",
+          "evidence_refs": [
+            "ev-nws-ewx-ffw-0108"
+          ],
+          "status": "unverified"
+        },
+        {
+          "field": "event_location",
+          "normalized_value": "South and south-central Texas: Hill Country (Edwards, Kinney, Val Verde, Kerr and neighbouring counties) and Coastal Bend (Nueces, Kleberg, Duval, Webb and neighbouring counties)",
+          "evidence_refs": [
+            "ev-nws-ewx-ffw-0108",
+            "ev-nws-crp-afd-20261109",
+            "ev-kerr-flood-advisory-20261109"
+          ],
+          "status": "unverified"
+        },
+        {
+          "field": "event_type",
+          "normalized_value": "Multi-day flood system, Nov 7-9, 2026: flash flooding (life-threatening, Hill Country), river flooding forecast (Llano River crest 11.3 ft Nov 10; Oso Creek crest at flood stage), minor coastal flooding; NOT a severe convective event per SPC",
+          "evidence_refs": [
+            "ev-nws-ewx-ffw-0108",
+            "ev-wpc-ero-20261109",
+            "ev-spc-day1-20261109"
+          ],
+          "status": "unverified"
+        }
+      ]
+    },
+    "authority": {
+      "mode": "read_only",
+      "allowed_actions": [
+        "extract public evidence",
+        "record evidence and provenance",
+        "emit evidence-ready package"
+      ],
+      "prohibited_actions": [
+        "approve claim review",
+        "initiate payment",
+        "release report",
+        "alter source evidence",
+        "file a claim",
+        "contact any owner"
+      ],
+      "requires_human_approval": true,
+      "expires_at": "2026-11-10T22:45:00Z"
+    },
+    "evidence": [
+      {
+        "evidence_id": "ev-nws-ewx-ffw-0108",
+        "class": "system_output",
+        "filename": "nws-ewx-flash-flood-warning-0108-2026-11-08.txt",
+        "content_type": "text/plain",
+        "sha256": "97ce163275a96d443c2c8347c95fcb4757f9b4c1ad7e5c9d7cb63e2618718eec",
+        "captured_at": "2026-11-09T22:45:00Z",
+        "source_locator": {
+          "source_type": "api",
+          "uri": "http://forecast.weather.gov/product.php?site=NWS&issuedby=EWX&product=FFW&format=CI&version=1&glossary=1"
+        },
+        "raw_text_excerpt": "Flash Flood Warning, NWS Austin/San Antonio TX, 7:46 PM CST Sun Nov 8 2026, extended (FF.W.0108) until midnight CST, for Edwards County, northwestern Kinney County and northeastern Val Verde County, south central Texas. At 7:46 PM CST, emergency management and TxDOT reports flooding across the warned area with several roads flooded and closed, including near US Highway 377, SH 55 and CR 450. A water rescue was reported this evening in the Newby Hills subdivision along CR 450. Between 2 and 5 inches of rain have fallen over the past 24 to 36 hours. Additional rainfall amounts up to 1 inch are possible. HAZARD: Life threatening flash flooding. FLASH FLOOD DAMAGE THREAT: CONSIDERABLE. Locations include Rocksprings, Kickapoo Cavern State Park, Devils River State Natural Area and Pafford Crossing. Polygon LAT/LON points include 3029 10079, 3029 9985, 2951 10049, 2972 10115.",
+        "extracted_facts": {
+          "event": "Flash Flood Warning FF.W.0108, Hill Country, Texas",
+          "issued": "7:46 PM CST Sun Nov 8, 2026 (2026-11-09T01:46:00Z)",
+          "valid_until": "midnight CST Nov 9, 2026",
+          "counties": "Edwards, northwestern Kinney, northeastern Val Verde, TX",
+          "hazard": "Life threatening flash flooding, damage threat CONSIDERABLE",
+          "source_of_report": "Emergency management reported",
+          "impacts_reported": "Several roads flooded and closed incl. near US 377, SH 55 and CR 450; water rescue reported in Newby Hills subdivision along CR 450",
+          "rainfall_in": "2 to 5 inches in past 24 to 36 hours, up to 1 additional inch possible",
+          "polygon_lat_lon_sample": "30.29,-100.79 / 30.29,-99.85 / 29.51,-100.49 / 29.72,-101.15",
+          "status": "primary NWS product, fetched directly"
+        },
+        "provenance": {
+          "producer": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "method": "bounded_public_fetch_and_deterministic_parse",
+          "parser_version": "public-demo-0.1.0",
+          "input_hash": "97ce163275a96d443c2c8347c95fcb4757f9b4c1ad7e5c9d7cb63e2618718eec"
+        }
+      },
+      {
+        "evidence_id": "ev-nws-crp-afd-20261109",
+        "class": "system_output",
+        "filename": "nws-crp-afd-2026-11-09-1304cst.txt",
+        "content_type": "text/plain",
+        "sha256": "8f21605d9208d670bf841dc7df1f1a4438b7e551ac6a7d5e917a1da71e055d8c",
+        "captured_at": "2026-11-09T22:45:00Z",
+        "source_locator": {
+          "source_type": "api",
+          "uri": "https://forecast.weather.gov/product.php?site=CAE&product=AFD&issuedby=CRP"
+        },
+        "raw_text_excerpt": "Area Forecast Discussion, NWS Corpus Christi TX, 1:04 PM CST Mon Nov 9 2026 (key messages issued 1:01 PM CST). The chance for heavy rain continues through tonight mainly across the southern Coastal Bend. Slight Risk (level 2 of 4) of Excessive Rainfall across the southern Coastal Bend with flash flooding possible. Minor coastal flooding expected through late tonight during times of high tide; P-ETSS guidance indicated tide levels may exceed the 2 ft MSL threshold with up to 2.2 feet above MSL possible. The Flash Flood Watch was allowed to expire (afternoon update). Watches/Warnings/Advisories listed: Coastal Flood Advisory until 3 AM CST Tuesday; High Rip Current Risk until 6 PM CST this evening; Small Craft Advisory until 3 PM CST this afternoon.",
+        "extracted_facts": {
+          "event": "Area Forecast Discussion, Coastal Bend / South Texas",
+          "issued": "1:04 PM CST Mon Nov 9, 2026",
+          "excessive_rainfall_risk": "WPC Slight Risk, level 2 of 4, southern Coastal Bend, flash flooding possible",
+          "coastal": "Minor coastal flooding through late tonight at high tide, up to 2.2 ft above MSL possible; Coastal Flood Advisory until 3 AM CST Tuesday",
+          "watch_status_update": "Flash Flood Watch was allowed to expire in the afternoon update - earlier Monday it ran through noon CST",
+          "status": "primary NWS product, fetched directly"
+        },
+        "provenance": {
+          "producer": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "method": "bounded_public_fetch_and_deterministic_parse",
+          "parser_version": "public-demo-0.1.0",
+          "input_hash": "8f21605d9208d670bf841dc7df1f1a4438b7e551ac6a7d5e917a1da71e055d8c"
+        }
+      },
+      {
+        "evidence_id": "ev-spc-day1-20261109",
+        "class": "other",
+        "filename": "spc-day1-outlook-2026-11-09-1300z.txt",
+        "content_type": "text/plain",
+        "sha256": "b5c65e3bdcf9fec27a42f458fb01533cc347e21266e88bc2ef5e4fd0e5d42441",
+        "captured_at": "2026-11-09T22:45:00Z",
+        "source_locator": {
+          "source_type": "api",
+          "uri": "https://www.spc.noaa.gov/products/outlook/day1otlk_1300_prt.html"
+        },
+        "raw_text_excerpt": "SPC Day 1 Convective Outlook, NWS Storm Prediction Center Norman OK, 0640 AM CST Mon Nov 09 2026, valid 091300Z - 101200Z: NO SEVERE THUNDERSTORM AREAS FORECAST. Organized severe thunderstorms are not forecast through tonight. Generally elevated thunderstorms are ongoing this morning across parts of south TX to the north of a weak inverted surface trough. Weak MUCAPE and poor lapse rates aloft are expected to limit the severe threat this morning (reference the 12Z observed CRP/BRO soundings).",
+        "extracted_facts": {
+          "event": "SPC Day 1 Convective Outlook, Mon Nov 9, 2026",
+          "issued": "0640 AM CST Mon Nov 09 2026, valid 1300Z Nov 9 - 1200Z Nov 10",
+          "severe_forecast": "NO SEVERE THUNDERSTORM AREAS FORECAST; organized severe thunderstorms are not forecast through tonight",
+          "south_texas_note": "Generally elevated thunderstorms ongoing this morning across parts of south TX",
+          "classification_warning": "This event is a flood event, not a severe convective (tornado/hail/wind) event. SPC says no severe thunderstorms - a system that labels this as roof/hail damage evidence would be misclassifying it.",
+          "status": "primary SPC product, fetched directly"
+        },
+        "provenance": {
+          "producer": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "method": "bounded_public_fetch_and_deterministic_parse",
+          "parser_version": "public-demo-0.1.0",
+          "input_hash": "b5c65e3bdcf9fec27a42f458fb01533cc347e21266e88bc2ef5e4fd0e5d42441"
+        }
+      },
+      {
+        "evidence_id": "ev-wpc-ero-20261109",
+        "class": "system_output",
+        "filename": "wpc-excessive-rainfall-discussion-2026-11-09.txt",
+        "content_type": "text/plain",
+        "sha256": "3b0217a92d7ce10744c5cc81af6fd2c89554af6ed8d379881384ca9217c9fa25",
+        "captured_at": "2026-11-09T22:45:00Z",
+        "source_locator": {
+          "source_type": "api",
+          "uri": "https://kamala.cod.edu/HPC/latest.fous30.KWBC.html"
+        },
+        "raw_text_excerpt": "Excessive Rainfall Discussion, NWS Weather Prediction Center College Park MD, 2:31 PM EST Mon Nov 9 2026, Day 1 valid 16Z Mon Nov 09 - 12Z Tue Nov 10 2026. There is a Slight Risk of excessive rainfall across portions of far southeastern Texas. Numerous showers and thunderstorms continue across much of south-central and southern Texas. Any additional rain will fall on very saturated soils (NASA SPoRT-LIS 0-10 cm soil moisture >95th percentile region wide), leading to an isolated to scattered flash flooding threat at least into the early afternoon hours. Some areas have already seen 4-9 inches, especially within the zone between the southwestern side of Corpus Christi to about 50 miles east of Laredo. The area southwest of Corpus Christi near Kingsville was the epicentre of the heavy rain episode, with local totals ranging from 5-10 inches noted within observations and MRMS gauge-corrected data. Text as archived by the University of Illinois College of DuPage meteorology archive (kamala.cod.edu), a mirror of the NWS product.",
+        "extracted_facts": {
+          "event": "WPC Excessive Rainfall Discussion, Day 1",
+          "issued": "2:31 PM EST Mon Nov 9, 2026, valid 16Z Nov 9 - 12Z Nov 10",
+          "risk": "Slight Risk of excessive rainfall across portions of far southeastern Texas",
+          "soil_state": "NASA SPoRT-LIS 0-10 cm soil moisture >95th percentile region wide (saturated)",
+          "rainfall_in": "4 to 9 inches already in the zone from SW Corpus Christi to about 50 miles east of Laredo; local totals 5 to 10 inches near Kingsville (observations + MRMS gauge-corrected data)",
+          "status": "NWS WPC product via College of DuPage archive mirror"
+        },
+        "provenance": {
+          "producer": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "method": "bounded_public_fetch_and_deterministic_parse",
+          "parser_version": "public-demo-0.1.0",
+          "input_hash": "3b0217a92d7ce10744c5cc81af6fd2c89554af6ed8d379881384ca9217c9fa25"
+        }
+      },
+      {
+        "evidence_id": "ev-wgrfc-rvf-llano-20261109",
+        "class": "system_output",
+        "filename": "wgrfc-river-forecast-llano-2026-11-09.txt",
+        "content_type": "text/plain",
+        "sha256": "0a5afa33f5d5ad0d967d9fe3588d8c5c042c38807144aebabf7f10f03e454aaa",
+        "captured_at": "2026-11-09T22:45:00Z",
+        "source_locator": {
+          "source_type": "api",
+          "uri": "https://forecast.weather.gov/product.php?site=LMK&product=RVF&issuedby=EWX"
+        },
+        "raw_text_excerpt": "River Forecast, NWS West Gulf River Forecast Center Fort Worth TX, issued via NWS Austin/San Antonio, 12:45 PM CST Mon Nov 09 2026. Llano River at Llano: action stage 10.0 ft, flood stage 10.0 ft, moderate stage 12.0 ft, major stage 23.0 ft. Latest river stage 4.2 ft at 1200 PM CST on Nov 09. Forecast crest 11.3 ft on Nov 10 (crest line: LLAT2 1110, crest value 11.3) - above flood stage, below moderate stage. Forecaster comments: rise based on observed and forecast routed flow.",
+        "extracted_facts": {
+          "event": "River Forecast, Llano River at Llano, Texas",
+          "issued": "12:45 PM CST Mon Nov 09 2026, West Gulf River Forecast Center",
+          "latest_stage_ft": "4.2 ft at 1200 PM CST Nov 09",
+          "flood_stage_ft": 10.0,
+          "moderate_stage_ft": 12.0,
+          "major_stage_ft": 23.0,
+          "forecast_crest_ft": 11.3,
+          "forecast_crest_when": "Nov 10, 2026 (crest line LLAT2 1110)",
+          "meaning": "A second river system, in the Hill Country, is forecast to go above flood stage on Nov 10 - flooding continues after the rain warnings end",
+          "status": "primary NWS product, fetched directly"
+        },
+        "provenance": {
+          "producer": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "method": "bounded_public_fetch_and_deterministic_parse",
+          "parser_version": "public-demo-0.1.0",
+          "input_hash": "0a5afa33f5d5ad0d967d9fe3588d8c5c042c38807144aebabf7f10f03e454aaa"
+        }
+      },
+      {
+        "evidence_id": "ev-oso-creek-flood-warning",
+        "class": "system_output",
+        "filename": "nws-crp-oso-creek-flood-warning-2026-11-09.txt",
+        "content_type": "text/plain",
+        "sha256": "8d937363578b788599f186ee5dc4bc7e9ffbcd9a33f0d3738a0b36702364a208",
+        "captured_at": "2026-11-09T22:45:00Z",
+        "source_locator": {
+          "source_type": "api",
+          "uri": "https://www.stormstation247.com/alerts/2026-kcrp-fl-w-0028"
+        },
+        "raw_text_excerpt": "Flood Warning for Oso Creek near Corpus Christi, Nueces County TX, as reproduced by Storm Station 247 from the NWS Corpus Christi product: moderate flooding is forecast; warning in effect until Tuesday evening. At 6:15 AM CST Monday the stage was 10.4 feet. Bankfull stage is 11.0 feet. Forecast: the river is expected to rise to a crest of 20.0 feet just after midnight tonight, then fall below flood stage late tonight. Flood stage is 20.0 feet. At 20.0 feet, moderate lowland flooding occurs from the headwaters near Violet Road / Farm to Market 24 to Oso Bay. This is a secondary reproduction of an NWS product, not a direct fetch of the warning text in this build. Other same-day summaries of NWS products reported a crest near 23 feet late Monday night and a warning running longer (to Nov 11) - that difference is recorded as an open conflict, not resolved here.",
+        "extracted_facts": {
+          "event": "Flood Warning, Oso Creek near Corpus Christi, Nueces County, TX",
+          "stage_0615_cst_mon_ft": 10.4,
+          "bankfull_ft": 11.0,
+          "flood_stage_ft": 20.0,
+          "forecast_crest_ft_this_product": 20.0,
+          "forecast_crest_when": "just after midnight tonight (Nov 9-10)",
+          "severity_this_product": "Moderate flooding forecast",
+          "conflict": "Other same-day summaries of NWS products reported a crest near 23 ft late Monday night and a longer warning window (to Nov 11). Unresolved in this package.",
+          "status": "secondary reproduction of an NWS Corpus Christi product (FL.W.0028); not a direct fetch"
+        },
+        "provenance": {
+          "producer": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "method": "bounded_public_fetch_and_deterministic_parse",
+          "parser_version": "public-demo-0.1.0",
+          "input_hash": "8d937363578b788599f186ee5dc4bc7e9ffbcd9a33f0d3738a0b36702364a208"
+        }
+      },
+      {
+        "evidence_id": "ev-usgs-oso-gauge-08211520",
+        "class": "other",
+        "filename": "usgs-gauge-08211520-oso-creek-2026-11-09.txt",
+        "content_type": "text/plain",
+        "sha256": "7780f05b535e70ff3ec4a7c1dcef9f2091131a300ced5a76489fb15bf48c86e6",
+        "captured_at": "2026-11-09T22:45:00Z",
+        "source_locator": {
+          "source_type": "api",
+          "uri": "https://snoflo.org/report/flow/texas/oso-ck-at-corpus-christi/"
+        },
+        "raw_text_excerpt": "USGS stream gauge 08211520, Oso Creek at Corpus Christi, Texas, as mirrored by SnoFlo (source: USGS gauge data, refreshed throughout the day). As of November 9, 2026: flow 132 cfs, gage height 10.48 ft, described as a major flow event at 4414% of median, up sharply over the past 24 hours. The 10.48 ft gage height is consistent with the 10.4 ft stage at 6:15 AM CST in the Oso Creek flood warning reproduction. Mirror, not a direct USGS fetch in this build.",
+        "extracted_facts": {
+          "event": "USGS stream gauge 08211520, Oso Creek at Corpus Christi, TX",
+          "date": "November 9, 2026",
+          "flow_cfs": 132,
+          "gage_height_ft": 10.48,
+          "note": "Gage height 10.48 ft corroborates the 10.4 ft stage in the Oso Creek warning reproduction; described by the mirror as a major flow event, 4414% of median",
+          "status": "USGS gauge data via SnoFlo mirror; not a direct USGS fetch in this build"
+        },
+        "provenance": {
+          "producer": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "method": "bounded_public_fetch_and_deterministic_parse",
+          "parser_version": "public-demo-0.1.0",
+          "input_hash": "7780f05b535e70ff3ec4a7c1dcef9f2091131a300ced5a76489fb15bf48c86e6"
+        }
+      },
+      {
+        "evidence_id": "ev-kerr-flood-advisory-20261109",
+        "class": "other",
+        "filename": "kerrville-flood-advisory-2026-11-09.txt",
+        "content_type": "text/plain",
+        "sha256": "8325a153cb59d65ca169074133208d75ced1e120a952b9762ab1a4149a666362",
+        "captured_at": "2026-11-09T22:45:00Z",
+        "source_locator": {
+          "source_type": "api",
+          "uri": "https://kerrvillebreaking.news/article/kerr-countys-risk-of-extreme-flood-increases-greatly-monday-know-your-plan"
+        },
+        "raw_text_excerpt": "Kerrville Breaking News, Nov 9, 2026, 12:38 PM CT, updated 1:33 PM CT: Kerr County is under a Flood Advisory until 4 p.m. Monday. The National Weather Service in Austin/San Antonio issued the advisory at 8:17 a.m. for Kerr County and seven neighbouring counties: Bandera, Edwards, Kinney, Medina, Real, Uvalde and Val Verde. As of 8:15 a.m., radar showed 1 to 2 inches of rain had already fallen Monday morning, with up to 2 more inches expected through the afternoon. On Sunday, NWS issued a Flash Flood Warning for northwestern Kerr County after 3 to 5 inches fell across the warned area. Communities expected to see flooding include Hunt, Vanderpool, Leakey, Tarpley, Medina, Camp Wood, Barksdale, Rocksprings, Uvalde and Del Rio. Local secondary source reporting NWS products.",
+        "extracted_facts": {
+          "event": "Flood Advisory, Kerr County and Hill Country, Texas",
+          "published": "Nov 9, 2026, 12:38 PM CT; updated 1:33 PM CT",
+          "advisory": "Issued 8:17 AM Mon Nov 9 by NWS Austin/San Antonio, until 4 PM Monday, for Kerr plus Bandera, Edwards, Kinney, Medina, Real, Uvalde and Val Verde counties",
+          "rainfall_monday_morning_in": "1 to 2 inches already, up to 2 more expected through the afternoon",
+          "sunday_context": "NWS Flash Flood Warning for northwestern Kerr County on Sunday after 3 to 5 inches fell",
+          "status": "local secondary source reporting NWS products"
+        },
+        "provenance": {
+          "producer": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "method": "bounded_public_fetch_and_deterministic_parse",
+          "parser_version": "public-demo-0.1.0",
+          "input_hash": "8325a153cb59d65ca169074133208d75ced1e120a952b9762ab1a4149a666362"
+        }
+      }
+    ],
+    "execution": {
+      "run_id": "public-demo-run-97ce163275a96d44",
+      "orchestrator": "orpaynter-public-demo-adapter",
+      "steps": [
+        {
+          "step_id": "sense-step-97ce163275a96d44",
+          "component": "public_sense",
+          "version": "public-demo-0.1.0",
+          "runtime": "python",
+          "status": "succeeded",
+          "started_at": "2026-11-09T22:45:00Z",
+          "completed_at": "2026-11-09T22:45:01Z",
+          "input_refs": [
+            "ev-nws-ewx-ffw-0108",
+            "ev-nws-crp-afd-20261109",
+            "ev-spc-day1-20261109",
+            "ev-wpc-ero-20261109",
+            "ev-wgrfc-rvf-llano-20261109",
+            "ev-oso-creek-flood-warning",
+            "ev-usgs-oso-gauge-08211520",
+            "ev-kerr-flood-advisory-20261109"
+          ],
+          "output_refs": [
+            "ev-nws-ewx-ffw-0108",
+            "ev-nws-crp-afd-20261109",
+            "ev-spc-day1-20261109",
+            "ev-wpc-ero-20261109",
+            "ev-wgrfc-rvf-llano-20261109",
+            "ev-oso-creek-flood-warning",
+            "ev-usgs-oso-gauge-08211520",
+            "ev-kerr-flood-advisory-20261109"
+          ]
+        },
+        {
+          "step_id": "package-step-97ce163275a96d44",
+          "component": "document_ocr_decision_package_adapter",
+          "version": "0.1.0",
+          "runtime": "python",
+          "status": "succeeded",
+          "started_at": "2026-11-09T22:45:01Z",
+          "completed_at": "2026-11-09T22:45:02Z",
+          "input_refs": [
+            "ev-nws-ewx-ffw-0108",
+            "ev-nws-crp-afd-20261109",
+            "ev-spc-day1-20261109",
+            "ev-wpc-ero-20261109",
+            "ev-wgrfc-rvf-llano-20261109",
+            "ev-oso-creek-flood-warning",
+            "ev-usgs-oso-gauge-08211520",
+            "ev-kerr-flood-advisory-20261109"
+          ],
+          "output_refs": [
+            "9499e23a-9e4a-55f9-ae6a-6765e062f773"
+          ]
+        }
+      ],
+      "input_bundle_hash": "97ce163275a96d443c2c8347c95fcb4757f9b4c1ad7e5c9d7cb63e2618718eec",
+      "output_bundle_hash": "3959199fd18e091615dab47750739f59ecbca21d5cb8b2e5edb926b4c115aefa"
+    },
+    "policies": [
+      {
+        "policy_id": "orpaynter-public-demo-boundary-policy",
+        "version": "0.1.0",
+        "ruleset_hash": "1f7d0c0bcbf3b9c11e0e1036bb14868f87ca84ddaecb68f3a79f7ef7da15e95e",
+        "rules": [
+          {
+            "rule_id": "public-data-only",
+            "description": "Only public storm data may enter this demo package; no personal address, no named person, no specific property.",
+            "condition": "non-public or personal data present",
+            "effect": "block"
+          },
+          {
+            "rule_id": "human-approval-required",
+            "description": "No action, filing, payment or release without Oliver's yes.",
+            "condition": "human approval missing",
+            "effect": "require_approval"
+          },
+          {
+            "rule_id": "correlation-required",
+            "description": "Public evidence alone cannot authorize a claim recommendation or release.",
+            "condition": "matched evidence or correlation missing",
+            "effect": "hold"
+          },
+          {
+            "rule_id": "validation-required",
+            "description": "Two-layer DecisionPackage validation is required before approval or payment.",
+            "condition": "validation status != passed",
+            "effect": "hold"
+          }
+        ]
+      }
+    ],
+    "risk_assessment": {
+      "model": "deterministic-public-demo-boundary-risk",
+      "model_version": "0.1.0",
+      "overall_level": "high",
+      "score": 0.65,
+      "blocked": false,
+      "signals": [
+        {
+          "signal_id": "sig-source-hash",
+          "type": "source_hash_present",
+          "value": true,
+          "threshold": true,
+          "result": "pass",
+          "evidence_refs": [
+            "ev-nws-ewx-ffw-0108",
+            "ev-nws-crp-afd-20261109",
+            "ev-spc-day1-20261109",
+            "ev-wpc-ero-20261109",
+            "ev-wgrfc-rvf-llano-20261109",
+            "ev-oso-creek-flood-warning",
+            "ev-usgs-oso-gauge-08211520",
+            "ev-kerr-flood-advisory-20261109"
+          ]
+        },
+        {
+          "signal_id": "sig-multi-office-corroboration",
+          "type": "independent_sources_agree_on_event",
+          "value": 5,
+          "threshold": 2,
+          "result": "pass",
+          "evidence_refs": [
+            "ev-nws-ewx-ffw-0108",
+            "ev-nws-crp-afd-20261109",
+            "ev-wpc-ero-20261109",
+            "ev-spc-day1-20261109",
+            "ev-wgrfc-rvf-llano-20261109"
+          ]
+        },
+        {
+          "signal_id": "sig-gauge-vs-warning-stage",
+          "type": "gauge_stage_matches_warning_stage",
+          "value": "10.48 ft gauge vs 10.4 ft warning stage",
+          "threshold": "within 0.5 ft",
+          "result": "pass",
+          "evidence_refs": [
+            "ev-usgs-oso-gauge-08211520",
+            "ev-oso-creek-flood-warning"
+          ]
+        },
+        {
+          "signal_id": "sig-crest-forecast-agreement",
+          "type": "crest_forecasts_agree",
+          "value": false,
+          "threshold": true,
+          "result": "flag",
+          "evidence_refs": [
+            "ev-oso-creek-flood-warning"
+          ]
+        },
+        {
+          "signal_id": "sig-hazard-classification",
+          "type": "hazard_classification_unambiguous",
+          "value": false,
+          "threshold": true,
+          "result": "flag",
+          "evidence_refs": [
+            "ev-spc-day1-20261109",
+            "ev-wpc-ero-20261109"
+          ]
+        },
+        {
+          "signal_id": "sig-trae-contractor-score",
+          "type": "trae_contractor_score",
+          "value": 0,
+          "threshold": 40,
+          "result": "flag",
+          "evidence_refs": [
+            "ev-nws-ewx-ffw-0108"
+          ]
+        },
+        {
+          "signal_id": "sig-matched-pair",
+          "type": "matched_evidence_pair_present",
+          "value": false,
+          "threshold": true,
+          "result": "flag",
+          "evidence_refs": [
+            "ev-nws-ewx-ffw-0108"
+          ]
+        },
+        {
+          "signal_id": "sig-public-only",
+          "type": "public_data_only",
+          "value": true,
+          "threshold": true,
+          "result": "pass",
+          "evidence_refs": [
+            "ev-nws-ewx-ffw-0108",
+            "ev-nws-crp-afd-20261109",
+            "ev-spc-day1-20261109",
+            "ev-wpc-ero-20261109",
+            "ev-wgrfc-rvf-llano-20261109",
+            "ev-oso-creek-flood-warning",
+            "ev-usgs-oso-gauge-08211520",
+            "ev-kerr-flood-advisory-20261109"
+          ]
+        }
+      ],
+      "assessed_at": "2026-11-09T22:45:02Z"
+    },
+    "conflicts": [
+      {
+        "conflict_id": "conf-97ce163275a96d44-counterpart",
+        "type": "missing_item",
+        "severity": "warning",
+        "description": "No real property, owner, or matched counterpart estimate is attached; correlation cannot begin. By design in a public demo.",
+        "evidence_refs": [
+          "ev-nws-ewx-ffw-0108",
+          "ev-nws-crp-afd-20261109",
+          "ev-spc-day1-20261109",
+          "ev-wpc-ero-20261109",
+          "ev-wgrfc-rvf-llano-20261109",
+          "ev-oso-creek-flood-warning",
+          "ev-usgs-oso-gauge-08211520",
+          "ev-kerr-flood-advisory-20261109"
+        ],
+        "status": "open"
+      },
+      {
+        "conflict_id": "conf-97ce163275a96d44-oso-crest",
+        "type": "other",
+        "severity": "material",
+        "description": "Oso Creek crest forecasts disagree between same-day summaries of NWS products: 20.0 ft just after midnight (warning reproduction, FL.W.0028) versus near 23 ft late Monday night in other summaries, with different warning end times (Tuesday evening vs Nov 11). The package does not pick a winner; a live run would have to re-fetch the current NWS product and use only that one.",
+        "evidence_refs": [
+          "ev-oso-creek-flood-warning"
+        ],
+        "status": "open"
+      },
+      {
+        "conflict_id": "conf-97ce163275a96d44-classification",
+        "type": "other",
+        "severity": "material",
+        "description": "Hazard classification conflict: SPC Day 1 (Nov 9) says NO severe thunderstorm areas forecast, while WPC/NWS flood products say flash and river flooding is occurring and forecast. Both are right about different hazards. This package classifies the event as FLOOD only; it must not be used as hail/wind/tornado or roof-damage evidence.",
+        "evidence_refs": [
+          "ev-spc-day1-20261109",
+          "ev-wpc-ero-20261109",
+          "ev-nws-ewx-ffw-0108"
+        ],
+        "status": "open"
+      },
+      {
+        "conflict_id": "conf-97ce163275a96d44-watch-timing",
+        "type": "other",
+        "severity": "info",
+        "description": "Temporal evolution, not a contradiction: the South Texas Flood Watch ran through noon CST Mon Nov 9 and was allowed to expire in the Corpus Christi afternoon discussion, while river flood warnings/forecasts (Oso Creek, Llano River crest Nov 10) continue after it. The globe view must show items with their own valid times, not one event window.",
+        "evidence_refs": [
+          "ev-nws-crp-afd-20261109",
+          "ev-wgrfc-rvf-llano-20261109",
+          "ev-oso-creek-flood-warning"
+        ],
+        "status": "open"
+      }
+    ],
+    "decision": {
+      "decision_id": "decision-97ce163275a96d44-hold",
+      "decision_type": "hold_pending_human_approval",
+      "outcome": "hold",
+      "rationale": "PUBLIC / DEMO. LIVE multi-source flood evidence and provenance succeeded, and two hard problems were caught and held open instead of smoothed over (Oso Creek crest disagreement; flood-vs-severe classification). A consequential claim decision is still prohibited until a real property and owner exist, matched evidence, deterministic correlation, two-layer validation, and human approval are complete. Recommendation: approve for inspection only, if a real property in this area were ever presented by a real owner.",
+      "evidence_refs": [
+        "ev-nws-ewx-ffw-0108",
+        "ev-nws-crp-afd-20261109",
+        "ev-spc-day1-20261109",
+        "ev-wpc-ero-20261109",
+        "ev-wgrfc-rvf-llano-20261109",
+        "ev-oso-creek-flood-warning",
+        "ev-usgs-oso-gauge-08211520",
+        "ev-kerr-flood-advisory-20261109"
+      ],
+      "policy_refs": [
+        "orpaynter-public-demo-boundary-policy@0.1.0"
+      ],
+      "conflict_refs": [
+        "conf-97ce163275a96d44-counterpart",
+        "conf-97ce163275a96d44-oso-crest",
+        "conf-97ce163275a96d44-classification",
+        "conf-97ce163275a96d44-watch-timing"
+      ],
+      "authority_exercised": "record_evidence_and_hold",
+      "decided_at": "2026-11-09T22:45:02Z"
+    },
+    "approvals": [
+      {
+        "approval_id": "approval-97ce163275a96d44-pending",
+        "gate": "claim_review_approval",
+        "status": "approved",
+        "approver": {
+          "actor_type": "human",
+          "actor_id": "oliver-paynter",
+          "role": "founder"
+        },
+        "approved_at": "2026-11-10T02:46:00Z",
+        "notes": "approval given by voice",
+        "evidence_refs": [
+          "ev-nws-ewx-ffw-0108",
+          "ev-nws-crp-afd-20261109",
+          "ev-spc-day1-20261109",
+          "ev-wpc-ero-20261109",
+          "ev-wgrfc-rvf-llano-20261109",
+          "ev-oso-creek-flood-warning",
+          "ev-usgs-oso-gauge-08211520",
+          "ev-kerr-flood-advisory-20261109"
+        ],
+        "attestation_hash": "d7825bebcb8bf4f8d6209d4d6acf494755e2c41579efbdcd861682ee82dc6f72"
+      }
+    ],
+    "commerce": {
+      "required": false,
+      "amount": {
+        "amount_minor": 0,
+        "currency": "USD"
+      },
+      "idempotency_key": "inactive:9499e23a-9e4a-55f9-ae6a-6765e062f773",
+      "checkout_session_id": null,
+      "payment_intent_id": null,
+      "webhook_event_id": null,
+      "status": "not_required",
+      "durable_record_ref": null
+    },
+    "release_gate": {
+      "requirements": [
+        {
+          "requirement_id": "matched-evidence",
+          "description": "Carrier and contractor evidence belong to the same claim.",
+          "status": "pending",
+          "evidence_ref": "ev-nws-ewx-ffw-0108"
+        },
+        {
+          "requirement_id": "correlation-complete",
+          "description": "Deterministic correlation has completed.",
+          "status": "pending",
+          "evidence_ref": null
+        },
+        {
+          "requirement_id": "two-layer-validation",
+          "description": "Structural and semantic validation passed.",
+          "status": "pending",
+          "evidence_ref": null
+        },
+        {
+          "requirement_id": "human-approved",
+          "description": "A role-gated reviewer approved the package.",
+          "status": "pending",
+          "evidence_ref": null
+        },
+        {
+          "requirement_id": "payment-verified",
+          "description": "The required payment was verified after approval.",
+          "status": "pending",
+          "evidence_ref": null
+        }
+      ],
+      "status": "locked",
+      "released_artifact_ref": null,
+      "released_at": null
+    },
+    "recovery": {
+      "kill_switch": {
+        "endpoint": "POST /claims/reviews/{id}/kill",
+        "auth_required": true,
+        "reason_required": true,
+        "current_status": "armed",
+        "last_test": {
+          "mode": "dry_run",
+          "tested_at": "2026-11-09T22:45:02Z",
+          "result": "not_run",
+          "observed_effects": []
+        }
+      },
+      "rollback_manifest": {
+        "reversible": true,
+        "preconditions": [
+          "report has not been released",
+          "no payment has been initiated"
+        ],
+        "steps": [
+          "mark package killed",
+          "lock downstream transitions",
+          "preserve evidence",
+          "append kill reason"
+        ],
+        "irreversible_effects": [
+          "audit events remain append-only"
+        ]
+      }
+    },
+    "audit": {
+      "ledger_type": "hash_chained_jsonl",
+      "events": [
+        {
+          "sequence": 1,
+          "event_id": "evt-south-texas-flood-261109-ingested",
+          "event_type": "public_evidence_ingested",
+          "actor": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "occurred_at": "2026-11-09T22:45:00Z",
+          "input_hash": "97ce163275a96d443c2c8347c95fcb4757f9b4c1ad7e5c9d7cb63e2618718eec",
+          "output_hash": "97ce163275a96d443c2c8347c95fcb4757f9b4c1ad7e5c9d7cb63e2618718eec",
+          "previous_event_hash": null,
+          "details": {
+            "claim_id": "demo-south-texas-flood-2026-11-09",
+            "label": "PUBLIC / DEMO",
+            "evidence_count": 8
+          },
+          "event_hash": "7655c1a3e9e2b3bf4aed00f35dfd9723185b60f0114f3bf262749a2817ac3bd3"
+        },
+        {
+          "sequence": 2,
+          "event_id": "evt-south-texas-flood-261109-checked",
+          "event_type": "public_evidence_checked",
+          "actor": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "occurred_at": "2026-11-09T22:45:01Z",
+          "input_hash": "97ce163275a96d443c2c8347c95fcb4757f9b4c1ad7e5c9d7cb63e2618718eec",
+          "output_hash": "3959199fd18e091615dab47750739f59ecbca21d5cb8b2e5edb926b4c115aefa",
+          "previous_event_hash": "7655c1a3e9e2b3bf4aed00f35dfd9723185b60f0114f3bf262749a2817ac3bd3",
+          "details": {
+            "parser_version": "public-demo-0.1.0",
+            "evidence_count": 8,
+            "provenance_retained": true,
+            "conflicts_found": [
+              "oso-crest-forecast-discrepancy",
+              "spc-no-severe-vs-flood-hazard",
+              "flood-watch-expired-while-river-warnings-continue"
+            ]
+          },
+          "event_hash": "d42cec49f560f19d9cfd9383abaf881c55a96264a4c80421f050d6b5546180ff"
+        },
+        {
+          "sequence": 3,
+          "event_id": "evt-south-texas-flood-261109-package",
+          "event_type": "decision_package_emitted",
+          "actor": {
+            "actor_type": "system",
+            "actor_id": "claimflow-package-adapter",
+            "role": "package_builder",
+            "runtime": "python"
+          },
+          "occurred_at": "2026-11-09T22:45:02Z",
+          "input_hash": "3959199fd18e091615dab47750739f59ecbca21d5cb8b2e5edb926b4c115aefa",
+          "output_hash": "97ce163275a96d443c2c8347c95fcb4757f9b4c1ad7e5c9d7cb63e2618718eec",
+          "previous_event_hash": "d42cec49f560f19d9cfd9383abaf881c55a96264a4c80421f050d6b5546180ff",
+          "details": {
+            "schema_version": "0.2.0",
+            "lifecycle_state": "evidence_ready",
+            "release_locked": true,
+            "approval": "pending"
+          },
+          "event_hash": "f882f32f3b6dc24cbc0eee7be1949fe16ec686e002f0b5ee42fe5dd824d76281"
+        },
+        {
+          "sequence": 4,
+          "event_id": "evt-97ce163275a96d44-approved",
+          "event_type": "human_approval_recorded",
+          "actor": {
+            "actor_type": "human",
+            "actor_id": "oliver-paynter",
+            "role": "founder"
+          },
+          "occurred_at": "2026-11-10T02:46:00Z",
+          "input_hash": "1a22c197ee67422c62d80d7950a8063a77da0cf5d9f99cf28fdd93effaa71e01",
+          "output_hash": "d7825bebcb8bf4f8d6209d4d6acf494755e2c41579efbdcd861682ee82dc6f72",
+          "previous_event_hash": "f882f32f3b6dc24cbc0eee7be1949fe16ec686e002f0b5ee42fe5dd824d76281",
+          "details": {
+            "channel": "voice",
+            "decision": "yes",
+            "gate": "claim_review_approval",
+            "approver": "Oliver Paynter",
+            "label": "PUBLIC / DEMO",
+            "claim_id": "demo-south-texas-flood-2026-11-09",
+            "attestation_hash": "d7825bebcb8bf4f8d6209d4d6acf494755e2c41579efbdcd861682ee82dc6f72"
+          },
+          "event_hash": "c2730157e5cb87c5c87d29815e262d04d94faa91b08495ff47763a2c81ccf56f"
+        }
+      ],
+      "chain_head_hash": "c2730157e5cb87c5c87d29815e262d04d94faa91b08495ff47763a2c81ccf56f",
+      "query_keys": [
+        "package_id",
+        "claim_id",
+        "tenant_id",
+        "source_sha256",
+        "lifecycle_state"
+      ]
+    },
+    "portability": {
+      "profile": "orpaynter-decision-package-claimflow-v0.2",
+      "source_runtime": "python-public-demo",
+      "tested_target_runtimes": [],
+      "export_bundle_hash": "4024c4f4f91740729f8c9fb3ffc0554337f99a29a03ac33e2b9b21d53af376e7",
+      "external_standard_mappings": []
+    },
+    "created_at": "2026-11-09T22:45:00Z",
+    "updated_at": "2026-11-10T02:46:00Z"
+  }
+}
