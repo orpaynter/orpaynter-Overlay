@@ -1,0 +1,98 @@
+{
+  "label": "PUBLIC / DEMO \u2014 NOT A REAL CLAIM",
+  "receipt_id": "6e1f7667-669f-536c-b5c1-294f89055c19",
+  "receipt_type": "sealed_receipt",
+  "demo_label": "DP-PUBLIC-DEMO-2026-11-09-SOUTH-TEXAS-FLOOD",
+  "package_id": "9499e23a-9e4a-55f9-ae6a-6765e062f773",
+  "package_hash": "9fc9a2f86d576a7af5abe83f2b5adb863406b74246b90eac3538e83af063bb8d",
+  "previous_package_hash": "1a22c197ee67422c62d80d7950a8063a77da0cf5d9f99cf28fdd93effaa71e01",
+  "previous_receipt_hash": "f882f32f3b6dc24cbc0eee7be1949fe16ec686e002f0b5ee42fe5dd824d76281",
+  "audit_chain_head_hash": "c2730157e5cb87c5c87d29815e262d04d94faa91b08495ff47763a2c81ccf56f",
+  "sealed_at": "2026-11-10T02:46:00Z",
+  "issued_at": "2026-11-10T02:46:00Z",
+  "approval": {
+    "approver": "Oliver Paynter",
+    "actor_type": "human",
+    "actor_id": "oliver-paynter",
+    "gate": "claim_review_approval",
+    "decision": "yes",
+    "channel": "voice",
+    "approved_at": "2026-11-10T02:46:00Z",
+    "attestation_hash": "d7825bebcb8bf4f8d6209d4d6acf494755e2c41579efbdcd861682ee82dc6f72",
+    "notes": "approval given by voice"
+  },
+  "evidence_summary": {
+    "event": "South Texas flood system, Nov 7-9, 2026, still live Nov 9: flash flooding in the Hill Country, Llano River and Oso Creek river flooding, excessive rainfall on saturated ground, and minor coastal flooding - flood only, no severe thunderstorms forecast",
+    "sources": [
+      "NWS Austin/San Antonio Flash Flood Warning FF.W.0108, Nov 8, 2026",
+      "NWS Corpus Christi Area Forecast Discussion, Nov 9, 2026",
+      "SPC Day 1 Outlook, Nov 9, 2026 (no severe thunderstorms forecast)",
+      "WPC Excessive Rainfall Discussion, Nov 9, 2026 (via College of DuPage archive mirror)",
+      "West Gulf River Forecast Center river forecast - Llano River, Nov 9, 2026",
+      "NWS Corpus Christi Oso Creek Flood Warning FL.W.0028 (via secondary reproduction)",
+      "USGS gauge 08211520, Oso Creek (via mirror of USGS gauge data)",
+      "Kerrville Breaking News flood advisory, Nov 9, 2026"
+    ],
+    "evidence_count": 8,
+    "evidence": [
+      {
+        "evidence_id": "ev-nws-ewx-ffw-0108",
+        "sha256": "97ce163275a96d443c2c8347c95fcb4757f9b4c1ad7e5c9d7cb63e2618718eec",
+        "source_uri": "http://forecast.weather.gov/product.php?site=NWS&issuedby=EWX&product=FFW&format=CI&version=1&glossary=1"
+      },
+      {
+        "evidence_id": "ev-nws-crp-afd-20261109",
+        "sha256": "8f21605d9208d670bf841dc7df1f1a4438b7e551ac6a7d5e917a1da71e055d8c",
+        "source_uri": "https://forecast.weather.gov/product.php?site=CAE&product=AFD&issuedby=CRP"
+      },
+      {
+        "evidence_id": "ev-spc-day1-20261109",
+        "sha256": "b5c65e3bdcf9fec27a42f458fb01533cc347e21266e88bc2ef5e4fd0e5d42441",
+        "source_uri": "https://www.spc.noaa.gov/products/outlook/day1otlk_1300_prt.html"
+      },
+      {
+        "evidence_id": "ev-wpc-ero-20261109",
+        "sha256": "3b0217a92d7ce10744c5cc81af6fd2c89554af6ed8d379881384ca9217c9fa25",
+        "source_uri": "https://kamala.cod.edu/HPC/latest.fous30.KWBC.html"
+      },
+      {
+        "evidence_id": "ev-wgrfc-rvf-llano-20261109",
+        "sha256": "0a5afa33f5d5ad0d967d9fe3588d8c5c042c38807144aebabf7f10f03e454aaa",
+        "source_uri": "https://forecast.weather.gov/product.php?site=LMK&product=RVF&issuedby=EWX"
+      },
+      {
+        "evidence_id": "ev-oso-creek-flood-warning",
+        "sha256": "8d937363578b788599f186ee5dc4bc7e9ffbcd9a33f0d3738a0b36702364a208",
+        "source_uri": "https://www.stormstation247.com/alerts/2026-kcrp-fl-w-0028"
+      },
+      {
+        "evidence_id": "ev-usgs-oso-gauge-08211520",
+        "sha256": "7780f05b535e70ff3ec4a7c1dcef9f2091131a300ced5a76489fb15bf48c86e6",
+        "source_uri": "https://snoflo.org/report/flow/texas/oso-ck-at-corpus-christi/"
+      },
+      {
+        "evidence_id": "ev-kerr-flood-advisory-20261109",
+        "sha256": "8325a153cb59d65ca169074133208d75ced1e120a952b9762ab1a4149a666362",
+        "source_uri": "https://kerrvillebreaking.news/article/kerr-countys-risk-of-extreme-flood-increases-greatly-monday-know-your-plan"
+      }
+    ],
+    "evidence_manifest_hash": "9361e799fde1bd34113a2940bcd9e55663a345c92a23290310dd702f68b84d10"
+  },
+  "commerce": {
+    "required": false,
+    "amount_minor": 0,
+    "currency": "USD",
+    "status": "not_required"
+  },
+  "scope": "PUBLIC / DEMO only. This receipt seals Oliver's voice approval of the public demo DecisionPackage as proof of loop steps 1-6. It does not file a claim, authorise a repair, initiate a payment, release a claim report, or clear GACC #128. No real property, owner, or matched claim evidence exists.",
+  "limits": [
+    "No Final Gate run (6 checks not run \u2014 no case, no matched evidence, no correlation).",
+    "No live TRAE score \u2014 TRAE would return 0 with no contractor entity, below the 40 threshold.",
+    "Release gate remains locked; the 5 release requirements are still pending.",
+    "No live runtime \u2014 GACC #128 RED/BLOCKED; Vercel personal sign-in done but team grant for orpaynters-projects still returned 403 on 2026-11-09, so no AIA runtime was reachable and this package is not GACC evidence.",
+    "Flood-only classification: this package must not be used as hail, wind, tornado, or roof-damage evidence; SPC Day 1 for Nov 9 forecast no severe thunderstorms.",
+    "Oso Creek crest conflict held open and unresolved: 20.0 ft just after midnight in the FL.W.0028 reproduction vs near 23 ft late Monday in other same-day summaries of NWS products.",
+    "Some evidence was read via mirrors or secondary reproductions, labelled as such in the package (WPC via College of DuPage, Oso Creek warning via stormstation247, USGS gauge via snoflo)."
+  ],
+  "receipt_hash": "6b81a70d86c87539f6554e47d6860a76c302274f227d0d54da5197b89d09413f"
+}
