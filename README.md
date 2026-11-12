@@ -40,3 +40,5 @@ Source repository: [orpaynter/orpaynter-Overlay](https://github.com/orpaynter/or
 ## Proof
 
 See [the build report](docs/orpaynter/BUILD_REPORT.md). Unit tests run with `npm test`; local browser checks use Playwright. Paid Grok jobs require an operator action. Recovery does not dispatch customers, promote modeled geometry into measured CAD, or grant new authority.
+
+The [authorized property pilot runbook](docs/orpaynter/PROPERTY_PILOT_RUNBOOK.md) documents the current fail-closed readiness boundary, evidence schema, operator prerequisites and synthetic-only demonstration. Live intake and execution are not enabled.

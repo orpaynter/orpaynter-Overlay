@@ -1,0 +1,100 @@
+{
+  "classification": "SYNTHETIC_ONLY_NOT_CUSTOMER_OR_PILOT_EVIDENCE",
+  "executionPerformed": false,
+  "record": {
+    "tenantId": "synthetic-tenant",
+    "actorId": "synthetic-operator",
+    "consent": {
+      "status": "granted",
+      "evidenceId": "synthetic-consent",
+      "scope": "test-only",
+      "recordedAt": "2026-10-01T10:00:00Z"
+    },
+    "objective": "Synthetic objective: inspect a reported site after a storm.",
+    "baseline": {
+      "currentTools": "Synthetic manual and GIS workflow",
+      "matchCriteria": ["same task class", "same evidence threshold"],
+      "elapsedMinutes": 90,
+      "coordinationMinutes": 30,
+      "cost": {
+        "amount": 45,
+        "currency": "USD",
+        "laborAssumption": "synthetic labor rate",
+        "aiAssumption": "no AI spend"
+      }
+    },
+    "property": {
+      "tenantId": "synthetic-tenant",
+      "assetId": "synthetic-property",
+      "authorizationEvidenceId": "synthetic-authorization",
+      "permittedScope": "read-only inspection planning",
+      "reviewedAt": "2026-10-01T10:05:00Z",
+      "expiresAt": "2026-10-03T10:05:00Z",
+      "revokedAt": null
+    },
+    "event": {
+      "sourceId": "synthetic-event-1",
+      "sourceUrl": "https://example.invalid/synthetic-event-1",
+      "publisher": "Synthetic official-source placeholder",
+      "assetId": "synthetic-property",
+      "eventAt": "2026-10-01T08:00:00Z",
+      "publishedAt": "2026-10-01T08:10:00Z",
+      "updatedAt": "2026-10-01T08:15:00Z",
+      "retrievedAt": "2026-10-01T10:00:00Z",
+      "spatialReference": "EPSG:4326",
+      "uncertainty": "Synthetic uncertainty; not a damage assessment.",
+      "limitations": "Synthetic event; exposure does not establish damage.",
+      "rights": "Synthetic example only; no real source data."
+    },
+    "plan": {
+      "revision": "synthetic-plan-1",
+      "policyRevision": "synthetic-policy-1",
+      "scope": "read-only inspection planning",
+      "sourceEvidenceIds": ["synthetic-event-1"],
+      "claims": [{ "kind": "other" }]
+    },
+    "approval": {
+      "tenantId": "synthetic-tenant",
+      "approverActorId": "synthetic-approver",
+      "authorizedActorId": "synthetic-operator",
+      "planRevision": "synthetic-plan-1",
+      "policyRevision": "synthetic-policy-1",
+      "scope": "read-only inspection planning",
+      "approvedAt": "2026-10-01T10:10:00Z",
+      "expiresAt": "2026-10-03T10:10:00Z",
+      "revokedAt": null
+    },
+    "actions": [{
+      "tenantId": "synthetic-tenant",
+      "actorId": "synthetic-operator",
+      "policyRevision": "synthetic-policy-1",
+      "scope": "read-only inspection planning",
+      "planRevision": "synthetic-plan-1",
+      "approvalPlanRevision": "synthetic-plan-1",
+      "idempotencyKey": "synthetic-idempotency-key",
+      "receiptId": "synthetic-receipt",
+      "durableReceipt": true,
+      "outcome": "confirmed"
+    }],
+    "verification": {
+      "tenantId": "synthetic-tenant",
+      "assetId": "synthetic-property",
+      "verifierActorId": "synthetic-independent-verifier",
+      "verifierAuthorizationEvidenceId": "synthetic-verifier-authorization",
+      "outcomeEvidenceId": "synthetic-outcome"
+    },
+    "learning": {
+      "sourceOutcomeIds": ["synthetic-outcome"],
+      "permittedUse": "improve draft ordering only",
+      "targetPlanRevision": "synthetic-plan-1",
+      "changesPolicy": false,
+      "broadensAccess": false,
+      "createsApproval": false
+    }
+  },
+  "matchedTaskReportExample": {
+    "denominator": 1,
+    "coordinationReductionPercent": [{ "taskId": "synthetic-task", "value": 50 }],
+    "metricNote": "Synthetic arithmetic fixture only; not a measured customer result."
+  }
+}
