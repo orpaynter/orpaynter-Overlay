@@ -1,0 +1,183 @@
+{
+  "type": "FeatureCollection",
+  "name": "scenario4-ohio-valley-severe-2026-11-11-pins",
+  "properties": {
+    "label": "PUBLIC / DEMO - not a real claim",
+    "source": "SPC storm reports 261111_rpts.csv filtered to the Ohio Valley case area; 9 verified points per scenario4_exact_locations_addendum.md",
+    "sealed_package_id": "d15f3476-ea82-53db-8042-2f894d6e22da",
+    "seal": "5b3cb6514e98f7df6b7ac760a774386698efca830cb6175df6d8db58fd9cebc2"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.3,
+          39.36
+        ]
+      },
+      "properties": {
+        "time_utc": "2230",
+        "type": "WIND",
+        "size_or_speed": "UNK",
+        "location": "2 S Riley",
+        "county": "Vigo",
+        "state": "IN",
+        "comments": "3 to 4 homes with roof damage. A grain bin partially damaged and thrown into nearby trees. Trees downed in roadway. (IND)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.3,
+          39.39
+        ]
+      },
+      "properties": {
+        "time_utc": "2229",
+        "type": "HAIL",
+        "size_or_speed": "1.75",
+        "location": "Riley",
+        "county": "Vigo",
+        "state": "IN",
+        "comments": "Largest hail report in the verified set. (IND)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.04,
+          38.19
+        ]
+      },
+      "properties": {
+        "time_utc": "2211",
+        "type": "HAIL",
+        "size_or_speed": "1.00",
+        "location": "2 NE Crossville",
+        "county": "White",
+        "state": "IL",
+        "comments": "CR1800 E / IL 1 covered in quarter+ hail. (PAH)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.58,
+          38.41
+        ]
+      },
+      "properties": {
+        "time_utc": "2220",
+        "type": "HAIL",
+        "size_or_speed": "1.00",
+        "location": "Patoka",
+        "county": "Gibson",
+        "state": "IN",
+        "comments": "Dime to quarter hail, social media video. (PAH)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.79,
+          38.1
+        ]
+      },
+      "properties": {
+        "time_utc": "2245",
+        "type": "HAIL",
+        "size_or_speed": "1.00",
+        "location": "5 S Poseyville",
+        "county": "Posey",
+        "state": "IN",
+        "comments": "(PAH)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.57,
+          38.36
+        ]
+      },
+      "properties": {
+        "time_utc": "2249",
+        "type": "HAIL",
+        "size_or_speed": "1.00",
+        "location": "Princeton",
+        "county": "Gibson",
+        "state": "IN",
+        "comments": "(PAH)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.8,
+          38.14
+        ]
+      },
+      "properties": {
+        "time_utc": "2310",
+        "type": "HAIL",
+        "size_or_speed": "1.00",
+        "location": "2 SW Poseyville (North Posey HS)",
+        "county": "Posey",
+        "state": "IN",
+        "comments": "(PAH)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.3,
+          37.92
+        ]
+      },
+      "properties": {
+        "time_utc": "2358",
+        "type": "HAIL",
+        "size_or_speed": "1.00",
+        "location": "5 NE Reed",
+        "county": "Warrick",
+        "state": "IN",
+        "comments": "(PAH)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.99,
+          37.86
+        ]
+      },
+      "properties": {
+        "time_utc": "0024",
+        "type": "HAIL",
+        "size_or_speed": "1.00",
+        "location": "Maceo (SPC lists 'Macio')",
+        "county": "Daviess",
+        "state": "KY",
+        "comments": "0024 UTC Nov 11 report day = 6:24 PM CST Nov 11 local. (PAH)"
+      }
+    }
+  ]
+}

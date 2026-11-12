@@ -1,0 +1,869 @@
+{
+  "label": "PUBLIC / DEMO - NOT A REAL CLAIM",
+  "demo_label": "DP-PUBLIC-DEMO-2026-11-11-OHIO-VALLEY-SEVERE",
+  "schema": "https://schemas.orpaynter.com/decision-package/v0.2/decision-package.schema.json",
+  "schema_version": "0.2.0",
+  "package_hash": "5b3cb6514e98f7df6b7ac760a774386698efca830cb6175df6d8db58fd9cebc2",
+  "package_hash_method": "SHA-256 of canonical JSON (sort_keys, compact separators) of the 23-field package object, same method as claimflow/trae/decision_package.py seal_package(); recorded alongside the package because v0.2 has no package_hash field",
+  "scenario": 4,
+  "event_window": "2026-11-11 (live on 2026-11-11, built 2026-11-12T02:30:00Z)",
+  "first_scenario_package_id": "37c1fce8-e2b9-580e-b783-2c2010736e48",
+  "second_scenario_package_id": "fda2704f-987c-5f0f-91a2-56850e7b8adb",
+  "third_scenario_package_id": "9499e23a-9e4a-55f9-ae6a-6765e062f773",
+  "approval_status": "APPROVED - Oliver said yes by voice on 2026-11-11 (21:44 EST) to sealing scenario 4; sealed receipt issued - see sealed_receipt_scenario4.json. GitHub push / globe pins NOT approved by this yes - separate yes required.",
+  "package": {
+    "schema_version": "0.2.0",
+    "package_id": "d15f3476-ea82-53db-8042-2f894d6e22da",
+    "package_type": "claim_review",
+    "lifecycle_state": "evidence_ready",
+    "tenant_context": {
+      "tenant_id": "public-demo",
+      "principal_id": "user-demo-oliver",
+      "isolation_mode": "application_filter",
+      "storage_prefix": "public-demo/claims/demo-ohio-valley-severe-2026-11-11",
+      "production_rls_required": true
+    },
+    "trigger": {
+      "event_type": "public_storm_event_sensed",
+      "initiated_by": {
+        "actor_type": "agent",
+        "actor_id": "orpaynter-public-demo",
+        "role": "sense",
+        "runtime": "python"
+      },
+      "occurred_at": "2026-11-12T00:23:00Z",
+      "source_event_id": "DP-PUBLIC-DEMO-2026-11-11-OHIO-VALLEY-SEVERE"
+    },
+    "objective": "PUBLIC / DEMO - NOT A REAL CLAIM. LIVE public-data case, Wed Nov 11, 2026: an Ohio Valley severe hail/wind event sensed through the globe/Overlay view - an SPC outlook upgraded Marginal to Slight during the day, Mesoscale Discussion 2449, Severe Thunderstorm Watch 704, NWS severe warnings with a spotter-reported 1.0-inch hail report near Maceo, Kentucky and warning text expecting wind damage to roofs, and a tornado-warning cell in western Indiana that was never confirmed as a tornado - preserved with provenance in a DecisionPackage, then held. Workflow MAPPED to the FUSION_MANIFEST spine (Sense, TRAE, Filter, Marketplace, Inspection with human gate, DecisionPackage) and to the AIA six-stage governed pipeline (Intake, Evidence, Analysis, Challenge, Risk, Audit/Synthesis) as a mapped workflow only: no hosted AIA runtime has ever been observed and no live AIA runtime executed this package. Approve for inspection only if a real property in this area were ever presented by a real owner. No filing, no repair, no payment, no contact with any owner. Nothing is authorised until matched evidence, correlation, two-layer validation, and human approval are complete.",
+    "subject": {
+      "domain": "insurance_claim_review",
+      "entity_type": "claim",
+      "entity_id": "demo-ohio-valley-severe-2026-11-11",
+      "identity_assertions": [
+        {
+          "field": "claim_id",
+          "normalized_value": "demo-ohio-valley-severe-2026-11-11",
+          "evidence_refs": [
+            "ev-nws-pah-warnings-20261111"
+          ],
+          "status": "unverified"
+        },
+        {
+          "field": "event_location",
+          "normalized_value": "Ohio Valley: central and southern Indiana, western and central Kentucky, far southeastern Illinois, and southeastern Indiana / southwestern Ohio (NWS Indianapolis, Paducah, Louisville and Wilmington areas)",
+          "evidence_refs": [
+            "ev-spc-day1-1300z-20261111",
+            "ev-nws-ind-watch704-20261111",
+            "ev-nws-pah-warnings-20261111"
+          ],
+          "status": "unverified"
+        },
+        {
+          "field": "event_type",
+          "normalized_value": "Severe hail/wind event, Wed Nov 11, 2026: scattered severe hail around 1-1.5 inches forecast, spotter-reported 1.0-inch hail near Maceo, KY, 60 mph wind gusts in warnings, a tornado-warning cell in western Indiana with no confirmed tornado, and a Severe Thunderstorm Watch 704; NOT a flood event and NOT a confirmed tornado event",
+          "evidence_refs": [
+            "ev-spc-day1-2000z-20261111",
+            "ev-nws-pah-warnings-20261111",
+            "ev-indystar-live-20261111"
+          ],
+          "status": "unverified"
+        }
+      ]
+    },
+    "authority": {
+      "mode": "read_only",
+      "allowed_actions": [
+        "extract public evidence",
+        "record evidence and provenance",
+        "emit evidence-ready package"
+      ],
+      "prohibited_actions": [
+        "approve claim review",
+        "initiate payment",
+        "release report",
+        "alter source evidence",
+        "file a claim",
+        "contact any owner"
+      ],
+      "requires_human_approval": true,
+      "expires_at": "2026-11-13T02:30:00Z"
+    },
+    "evidence": [
+      {
+        "evidence_id": "ev-spc-day1-1300z-20261111",
+        "class": "system_output",
+        "filename": "spc-day1-outlook-2026-11-11-1300z.txt",
+        "content_type": "text/plain",
+        "sha256": "24fc77b876d85a392c3ebf5213733e7277c1a16209ab87b9ade870498d7237a9",
+        "captured_at": "2026-11-12T02:30:00Z",
+        "source_locator": {
+          "source_type": "api",
+          "uri": "https://forecast.weather.gov/product.php?site=FGF&issuedby=DY1&product=SWO&format=TXT&version=4&glossary=1"
+        },
+        "raw_text_excerpt": "Day 1 Convective Outlook, NWS Storm Prediction Center Norman OK, 0655 AM CST Wed Nov 11 2026 (ACUS01 KWNS 111257), valid 111300Z - 121200Z. THERE IS A MARGINAL RISK OF SEVERE THUNDERSTORMS FROM PARTS OF EASTERN ILLINOIS INTO INDIANA, WESTERN/CENTRAL KENTUCKY, AND MIDDLE TENNESSEE. Thunderstorms capable of producing isolated hail, damaging winds, and perhaps a tornado may occur this afternoon and evening across parts of eastern Illinois into Indiana, western/central Kentucky, and middle Tennessee. Surface-based thunderstorms expected to initially develop over eastern IL by 18-21Z. Weak but potentially sufficient MLCAPE and 30-40 kt of deep-layer shear should support updraft organization; a mix of clusters and marginal supercells expected. Main uncertainty and likely limiting factor: shallow/limited low-level moisture ahead of the front, dewpoints generally in the 30s to mid 40s. Modestly enhanced low-level shear may also support a tornado risk, especially if a supercell can develop and be sustained.",
+        "extracted_facts": {
+          "event": "SPC Day 1 Convective Outlook, Wed Nov 11, 2026 (1300Z issue)",
+          "issued": "0655 AM CST Wed Nov 11 2026, valid 111300Z - 121200Z",
+          "risk": "MARGINAL RISK of severe thunderstorms from parts of eastern Illinois into Indiana, western/central Kentucky, and middle Tennessee",
+          "hazards": "Isolated hail, damaging winds, and perhaps a tornado this afternoon and evening",
+          "development": "Surface-based thunderstorms initially over eastern IL by 18-21Z; MLCAPE weak but potentially sufficient; 30-40 kt deep-layer shear",
+          "limiting_factor": "Shallow/limited low-level moisture ahead of the front; dewpoints generally in the 30s to mid 40s",
+          "status": "primary SPC product, fetched directly"
+        },
+        "provenance": {
+          "producer": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "method": "bounded_public_fetch_and_deterministic_parse",
+          "parser_version": "public-demo-0.1.0",
+          "input_hash": "24fc77b876d85a392c3ebf5213733e7277c1a16209ab87b9ade870498d7237a9"
+        }
+      },
+      {
+        "evidence_id": "ev-spc-day1-2000z-20261111",
+        "class": "system_output",
+        "filename": "spc-day1-outlook-2026-11-11-2000z.txt",
+        "content_type": "text/plain",
+        "sha256": "5ed47b7c4bc34727586f1dc64d339d595d881183c0c1dd7fbc80c6e8a0436f89",
+        "captured_at": "2026-11-12T02:30:00Z",
+        "source_locator": {
+          "source_type": "api",
+          "uri": "https://westtennesseestormtrackers.net/severe/"
+        },
+        "raw_text_excerpt": "Day 1 Convective Outlook, NWS Storm Prediction Center Norman OK, 0200 PM CST Wed Nov 11 2026 (SPC AC 112000), valid 112000Z - 121200Z. THERE IS A SLIGHT RISK OF SEVERE THUNDERSTORMS ACROSS PARTS OF CENTRAL/SOUTHERN INDIANA, WESTERN KENTUCKY, AND FAR SOUTHEASTERN ILLINOIS. Thunderstorms capable of producing severe hail, damaging winds, and perhaps a tornado are forecast this afternoon and evening. 20Z Update: A Slight Risk was introduced for parts of central/southern IN, western KY, and far southeastern IL, driven by 15-percent hail and wind probabilities. As lower 50s dewpoints (along/ahead of the cold front) continue spreading eastward beneath steepening midlevel lapse rates, a corridor of 500-1000 J/kg MLCAPE should support a gradual increase in updraft intensity this afternoon into the evening. Scattered severe hail (around 1-1.5 inches in diameter) and damaging wind gusts are capable of occurring. See MCD #2449 for more details. Modestly enhanced low-level shear may also support a low-probability tornado risk.",
+        "extracted_facts": {
+          "event": "SPC Day 1 Convective Outlook, Wed Nov 11, 2026 (2000Z update)",
+          "issued": "0200 PM CST Wed Nov 11 2026, valid 112000Z - 121200Z",
+          "risk": "SLIGHT RISK of severe thunderstorms across parts of central/southern Indiana, western Kentucky, and far southeastern Illinois - an upgrade from the morning Marginal Risk",
+          "probabilities": "15-percent hail and wind probabilities drove the Slight Risk",
+          "hail_forecast_in": "Scattered severe hail around 1-1.5 inches in diameter",
+          "instability": "Corridor of 500-1000 J/kg MLCAPE as lower 50s dewpoints spread eastward",
+          "tornado": "Low-probability tornado risk",
+          "status": "SPC product as reproduced by a storm-tracker site; not a direct spc.noaa.gov fetch in this build"
+        },
+        "provenance": {
+          "producer": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "method": "bounded_public_fetch_and_deterministic_parse",
+          "parser_version": "public-demo-0.1.0",
+          "input_hash": "5ed47b7c4bc34727586f1dc64d339d595d881183c0c1dd7fbc80c6e8a0436f89"
+        }
+      },
+      {
+        "evidence_id": "ev-spc-md2449-20261111",
+        "class": "other",
+        "filename": "spc-mesoscale-discussion-2449-2026-11-11.txt",
+        "content_type": "text/plain",
+        "sha256": "005b42353b659ebbf238b94a31892dad63ad4c0917e4a882a221d4047f4c7cae",
+        "captured_at": "2026-11-12T02:30:00Z",
+        "source_locator": {
+          "source_type": "api",
+          "uri": "https://stormnews.org/news/what-is-a-blizzard-official-criteria-and-where-they-hit-the-most"
+        },
+        "raw_text_excerpt": "Mesoscale Discussion 2449, NWS Storm Prediction Center Norman OK, 0120 PM CST Wed Nov 11 2026, valid 111920Z - 112145Z. Areas affected: far eastern Illinois into Indiana and Kentucky. Concerning: Severe potential, Watch possible. Probability of Watch Issuance: 40 percent. Summary: Storms are expected to develop over eastern IL, spreading east/southeast through early evening. Locally severe hail and wind are most likely. Most probable peak intensity: hail 1.00-1.75 inches, tornado up to 90 mph, wind up to 60 mph. Surface observations show dewpoints in the 50s F, with a low pressure system over northern Illinois and radar echoes developing near it. This is a reproduction of the SPC graphic/product as shared via social media and a storm-news archive, not a direct spc.noaa.gov fetch in this build.",
+        "extracted_facts": {
+          "event": "SPC Mesoscale Discussion 2449, Wed Nov 11, 2026",
+          "issued": "0120 PM CST Wed Nov 11 2026, valid 111920Z - 112145Z",
+          "areas": "Far eastern Illinois into Indiana and Kentucky",
+          "watch_probability": "40 percent, Watch possible",
+          "development": "Storms expected to develop over eastern IL, spreading east/southeast through early evening; locally severe hail and wind most likely",
+          "peak_hail_in": "1.00-1.75 inches (most probable peak intensity)",
+          "peak_wind_mph": 60,
+          "peak_tornado_mph": 90,
+          "status": "SPC product as reproduced via the SPC graphic shared on social media and a storm-news archive; not a direct spc.noaa.gov fetch in this build"
+        },
+        "provenance": {
+          "producer": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "method": "bounded_public_fetch_and_deterministic_parse",
+          "parser_version": "public-demo-0.1.0",
+          "input_hash": "005b42353b659ebbf238b94a31892dad63ad4c0917e4a882a221d4047f4c7cae"
+        }
+      },
+      {
+        "evidence_id": "ev-nws-ind-watch704-20261111",
+        "class": "system_output",
+        "filename": "nws-ind-severe-thunderstorm-watch-704-2026-11-11.txt",
+        "content_type": "text/plain",
+        "sha256": "9958db5a70413d784819cf3073bee8f76dffedb3a0d2449c9ad7450bbbff1afe",
+        "captured_at": "2026-11-12T02:30:00Z",
+        "source_locator": {
+          "source_type": "api",
+          "uri": "https://paulpoteet.com/category/weather/forecasts/indianas-weather/"
+        },
+        "raw_text_excerpt": "Severe Thunderstorm Watch 704, National Weather Service Indianapolis IN, Wed Nov 11 2026, in effect until 11 PM EST / 10 PM CST this evening. This watch includes 9 counties in south central Indiana (Clark, Crawford, Dubois, Floyd, Harrison, Orange, Perry, Scott, Washington) and 6 counties in central Kentucky. The watch graphic issued with it listed: a couple of tornadoes possible, scattered hail up to ping-pong size possible, scattered gusts up to 70 mph possible, with a potential exposure of 3,855,596 people, 1,092 schools and 91 hospitals in the affected area. Watch county notifications later the same evening cancelled the watch county by county: 7:31 PM EST cancelled 9 counties in central Indiana including Hancock, Johnson, Marion and Morgan; 7:54 PM EST cancelled 5 counties including Bartholomew, Rush and Shelby; 8:28 PM EST cancelled 3 counties including Decatur and Jackson. Reproduced by an Indiana weather site from NWS Indianapolis watch county notification products.",
+        "extracted_facts": {
+          "event": "Severe Thunderstorm Watch 704, central/southern Indiana and central Kentucky",
+          "issued": "Wed Nov 11, 2026, in effect until 11 PM EST / 10 PM CST",
+          "counties_included": "9 counties south central Indiana (Clark, Crawford, Dubois, Floyd, Harrison, Orange, Perry, Scott, Washington) and 6 counties central Kentucky",
+          "watch_graphic_hazards": "A couple of tornadoes possible; scattered hail up to ping-pong size possible; scattered gusts up to 70 mph possible",
+          "watch_exposure": "Population 3,855,596; 1,092 schools; 91 hospitals in the affected area (per watch graphic)",
+          "cancellations": "7:31 PM EST cancelled 9 central Indiana counties incl. Marion (Indianapolis); 7:54 PM EST cancelled 5 counties; 8:28 PM EST cancelled 3 counties incl. Decatur and Jackson",
+          "status": "NWS Indianapolis watch county notification products as reproduced by an Indiana weather site; not a direct fetch in this build"
+        },
+        "provenance": {
+          "producer": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "method": "bounded_public_fetch_and_deterministic_parse",
+          "parser_version": "public-demo-0.1.0",
+          "input_hash": "9958db5a70413d784819cf3073bee8f76dffedb3a0d2449c9ad7450bbbff1afe"
+        }
+      },
+      {
+        "evidence_id": "ev-nws-pah-warnings-20261111",
+        "class": "system_output",
+        "filename": "nws-pah-severe-warnings-2026-11-11.txt",
+        "content_type": "text/plain",
+        "sha256": "79284574ae27a619301270ca13a2650d5180b6f97080a0856f4547c5fb533410",
+        "captured_at": "2026-11-12T02:30:00Z",
+        "source_locator": {
+          "source_type": "api",
+          "uri": "https://paulpoteet.com/category/weather/forecasts/indianas-weather/"
+        },
+        "raw_text_excerpt": "Severe Thunderstorm Warnings, National Weather Service Paducah KY, Wed Nov 11 2026, southwestern Indiana and northwestern Kentucky. At 6:23 PM CST, quarter size hail was reported in Maceo, Kentucky. At 6:25 PM CST, a severe thunderstorm was located near Knottsville, or 6 miles southeast of Rockport, moving east at 35 mph. HAZARD: 60 mph wind gusts and quarter size hail. SOURCE: Broadcast media reported. At 6:27 PM CST, a severe thunderstorm was located 5 miles southeast of Waitman, or 9 miles southwest of Hawesville, moving east at 35 mph. HAZARD: 60 mph wind gusts and quarter size hail. SOURCE: Trained spotters reported 1.0 inch hail near Maceo in eastern Daviess County. IMPACT: Hail damage to vehicles is expected. Expect wind damage to roofs, siding, and trees. At 6:45 PM CST, a severe thunderstorm was located over Rockport, moving east at 30 mph. HAZARD: 60 mph wind gusts and quarter size hail, for southwestern Spencer County in southwestern Indiana and northeastern Daviess County in northwestern Kentucky, until 7:30 PM CST. Reproduced by an Indiana weather site from NWS Paducah warning products.",
+        "extracted_facts": {
+          "event": "NWS Paducah severe thunderstorm warnings, southwestern Indiana / northwestern Kentucky",
+          "hail_report": "Trained spotters reported 1.0 inch hail near Maceo in eastern Daviess County, Kentucky; broadcast media reported quarter size hail in Maceo at 6:23 PM CST",
+          "hazard": "60 mph wind gusts and quarter size hail",
+          "roof_relevance": "Warning impact text: 'Hail damage to vehicles is expected. Expect wind damage to roofs, siding, and trees.'",
+          "warnings": "Knottsville/Rockport storm 6:25 PM CST; Waitman/Hawesville storm 6:27 PM CST; Rockport storm 6:45 PM CST until 7:30 PM CST",
+          "status": "NWS Paducah warning products as reproduced by an Indiana weather site; not a direct fetch in this build"
+        },
+        "provenance": {
+          "producer": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "method": "bounded_public_fetch_and_deterministic_parse",
+          "parser_version": "public-demo-0.1.0",
+          "input_hash": "79284574ae27a619301270ca13a2650d5180b6f97080a0856f4547c5fb533410"
+        }
+      },
+      {
+        "evidence_id": "ev-nws-iln-sps-svs-20261111",
+        "class": "system_output",
+        "filename": "nws-iln-statements-2026-11-11.txt",
+        "content_type": "text/plain",
+        "sha256": "87931c1cb4e9b5f76e85a96924cd7722db4df9505faa89c46f67bbf1c548523f",
+        "captured_at": "2026-11-12T02:30:00Z",
+        "source_locator": {
+          "source_type": "api",
+          "uri": "https://www.ready.noaa.gov/ready2-bin/state.pl?product=spwx&state=oh"
+        },
+        "raw_text_excerpt": "Special Weather Statements and Severe Weather Statement, National Weather Service Wilmington OH, Wed Nov 11 2026, as archived by NOAA READY. Special Weather Statement 8:02 PM EST: a strong thunderstorm will impact south central Fayette County in east central Indiana and northeastern Ripley, Franklin and northwestern Dearborn counties in southeastern Indiana until 8:30 PM EST. At 8:02 PM EST, radar was tracking a strong thunderstorm near Oldenburg, moving east at 25 mph. HAZARD: Wind gusts up to 45 mph and half inch size hail. SOURCE: Radar indicated. MAX HAIL SIZE: 0.50 IN. MAX WIND GUST: 45 MPH. Locations include Batesville, Brookville, Oldenburg, Sunman and Metamora. Special Weather Statement 8:20 PM EST: a strong thunderstorm 5 miles southeast of Versailles, moving east at 50 mph, gusts up to 50 mph and pea size hail. Severe Weather Statement 8:36 PM EST: Severe Thunderstorm Warning SV.W.0288 is CANCELLED for northern Dearborn, south central Franklin and northeastern Ripley counties; the storm which prompted the warning has weakened below severe limits. Earlier the same day, the NWS Wilmington Hazardous Weather Outlook (12:09 AM EST) said the probability for widespread hazardous weather was low and spotter activation was not expected.",
+        "extracted_facts": {
+          "event": "NWS Wilmington OH statements, southeastern Indiana / southwestern Ohio, Wed Nov 11, 2026",
+          "sps_802pm": "Strong thunderstorm near Oldenburg, IN, moving east 25 mph; gusts up to 45 mph, half inch hail; MAX HAIL SIZE 0.50 IN, MAX WIND GUST 45 MPH",
+          "sps_820pm": "Strong thunderstorm 5 miles southeast of Versailles, moving east 50 mph; gusts up to 50 mph, pea size hail",
+          "svs_836pm": "Severe Thunderstorm Warning SV.W.0288 CANCELLED for northern Dearborn, south central Franklin and northeastern Ripley counties; storm weakened below severe limits",
+          "morning_outlook": "NWS Wilmington Hazardous Weather Outlook 12:09 AM EST said probability for widespread hazardous weather was low and spotter activation was not expected",
+          "status": "primary NWS products via the NOAA READY archive"
+        },
+        "provenance": {
+          "producer": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "method": "bounded_public_fetch_and_deterministic_parse",
+          "parser_version": "public-demo-0.1.0",
+          "input_hash": "87931c1cb4e9b5f76e85a96924cd7722db4df9505faa89c46f67bbf1c548523f"
+        }
+      },
+      {
+        "evidence_id": "ev-indystar-live-20261111",
+        "class": "other",
+        "filename": "indystar-live-blog-2026-11-11.txt",
+        "content_type": "text/plain",
+        "sha256": "c6cf3eff364d574d545cd6ac7c2c106f248fb03ab1fe6a67c055185b5e08c05c",
+        "captured_at": "2026-11-12T02:30:00Z",
+        "source_locator": {
+          "source_type": "api",
+          "uri": "https://www.indystar.com/story/weather/indianapolis/2026/11/11/nws-warns-of-strong-to-severe-indianapolis-thunderstorms--live/92733853007/"
+        },
+        "raw_text_excerpt": "IndyStar live weather blog, Wed Nov 11 2026, evening. A line of strong to severe thunderstorms was expected to pass through the Indianapolis area the evening of Nov 11, according to the National Weather Service. The system could produce winds of up to 60 mph and hail up to an inch in diameter. The risk of a tornado is low, but not nonexistent, NWS meteorologist Chad Swain said. Indianapolis will remain under a severe thunderstorm watch through at least 11 p.m. A special weather statement urged people to seek shelter from the possibility of strong winds and nickel-sized hail until at least 7 p.m. As the storm moved into Hendricks County, a special weather statement cautioned residents of winds over 50 mph and half-inch hail in Brownsburg, Lebanon and Danville through at least 6:15 p.m. A cell that triggered a tornado warning in western Indiana was moving south and weakening as of about 5:45 p.m., Swain said. A special weather statement issued 7:31 PM ET for Columbus, Seymour and Bedford: at 7:21 p.m., radar detected a line of strong storms from about Greensburg to Bedford moving east at 45 mph, with winds over 40 mph and half-inch hail. Local news source reporting NWS products and an NWS meteorologist.",
+        "extracted_facts": {
+          "event": "IndyStar live weather blog, Indianapolis, Wed Nov 11, 2026, evening",
+          "forecast": "Line of strong to severe thunderstorms through Indianapolis evening; winds up to 60 mph, hail up to an inch; tornado risk low but not nonexistent (NWS meteorologist Chad Swain)",
+          "hendricks_county": "Special weather statement: winds over 50 mph and half-inch hail in Brownsburg, Lebanon and Danville through at least 6:15 p.m.",
+          "tornado_warning_cell": "A cell that triggered a tornado warning in western Indiana was moving south and weakening as of about 5:45 p.m.",
+          "columbus_seymour_bedford": "7:31 PM ET statement: line Greensburg to Bedford moving east 45 mph, winds over 40 mph, half-inch hail",
+          "status": "local news source reporting NWS products and an NWS meteorologist; not an NWS product itself"
+        },
+        "provenance": {
+          "producer": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "method": "bounded_public_fetch_and_deterministic_parse",
+          "parser_version": "public-demo-0.1.0",
+          "input_hash": "c6cf3eff364d574d545cd6ac7c2c106f248fb03ab1fe6a67c055185b5e08c05c"
+        }
+      },
+      {
+        "evidence_id": "ev-nws-lmk-briefing-20261111",
+        "class": "system_output",
+        "filename": "nws-lmk-briefing-2026-11-11.txt",
+        "content_type": "text/plain",
+        "sha256": "0a153173a0bf4190145663512260aa757d976edc137d2d420e30a63b7bfbdeae",
+        "captured_at": "2026-11-12T02:30:00Z",
+        "source_locator": {
+          "source_type": "api",
+          "uri": "https://www.facebook.com/NWSLouisville/posts/pfbid02AETAo6uhiRwrmM5GX5GV9GvsJhwTnCBBpMN7nKPWKU3cBxu4qzVdkd1A6Y5bgL22l"
+        },
+        "raw_text_excerpt": "NWS Louisville KY briefing slide, Wed Nov 11 2026, 3:32 PM EST, as shared by the NWS Louisville office on its official Facebook page. Headline: Showers and Isolated Storms This Evening. Subtitle: Low Threat of Stronger Winds. Key messages: showers and isolated thunderstorms ahead of a cold front over the Ohio Valley; a newly added Level 2 (Slight) risk for gusty winds and hail; main impacts of strong gusty winds up to 60 mph and near-severe quarter-size hail. Confidence in strong storms is marked as Low. The outlook map shows a yellow Level 2 Slight area covering western Kentucky and southern Indiana, and a darker green Level 1 Marginal area to the east.",
+        "extracted_facts": {
+          "event": "NWS Louisville KY briefing, Wed Nov 11, 2026",
+          "issued": "3:32 PM EST Wed Nov 11, 2026",
+          "headline": "Showers and Isolated Storms This Evening; Low Threat of Stronger Winds",
+          "risk": "Newly added Level 2 (Slight) risk for gusty winds and hail",
+          "impacts": "Strong gusty winds up to 60 mph and near-severe quarter-size hail",
+          "confidence": "Low",
+          "status": "NWS Louisville office briefing as shared on its official Facebook page; not a direct weather.gov fetch in this build"
+        },
+        "provenance": {
+          "producer": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "method": "bounded_public_fetch_and_deterministic_parse",
+          "parser_version": "public-demo-0.1.0",
+          "input_hash": "0a153173a0bf4190145663512260aa757d976edc137d2d420e30a63b7bfbdeae"
+        }
+      }
+    ],
+    "execution": {
+      "run_id": "public-demo-run-79284574ae27a619",
+      "orchestrator": "orpaynter-public-demo-adapter",
+      "steps": [
+        {
+          "step_id": "sense-step-79284574ae27a619",
+          "component": "public_sense",
+          "version": "public-demo-0.1.0",
+          "runtime": "python",
+          "status": "succeeded",
+          "started_at": "2026-11-12T02:30:00Z",
+          "completed_at": "2026-11-12T02:30:01Z",
+          "input_refs": [
+            "ev-spc-day1-1300z-20261111",
+            "ev-spc-day1-2000z-20261111",
+            "ev-spc-md2449-20261111",
+            "ev-nws-ind-watch704-20261111",
+            "ev-nws-pah-warnings-20261111",
+            "ev-nws-iln-sps-svs-20261111",
+            "ev-indystar-live-20261111",
+            "ev-nws-lmk-briefing-20261111"
+          ],
+          "output_refs": [
+            "ev-spc-day1-1300z-20261111",
+            "ev-spc-day1-2000z-20261111",
+            "ev-spc-md2449-20261111",
+            "ev-nws-ind-watch704-20261111",
+            "ev-nws-pah-warnings-20261111",
+            "ev-nws-iln-sps-svs-20261111",
+            "ev-indystar-live-20261111",
+            "ev-nws-lmk-briefing-20261111"
+          ]
+        },
+        {
+          "step_id": "package-step-79284574ae27a619",
+          "component": "document_ocr_decision_package_adapter",
+          "version": "0.1.0",
+          "runtime": "python",
+          "status": "succeeded",
+          "started_at": "2026-11-12T02:30:01Z",
+          "completed_at": "2026-11-12T02:30:02Z",
+          "input_refs": [
+            "ev-spc-day1-1300z-20261111",
+            "ev-spc-day1-2000z-20261111",
+            "ev-spc-md2449-20261111",
+            "ev-nws-ind-watch704-20261111",
+            "ev-nws-pah-warnings-20261111",
+            "ev-nws-iln-sps-svs-20261111",
+            "ev-indystar-live-20261111",
+            "ev-nws-lmk-briefing-20261111"
+          ],
+          "output_refs": [
+            "d15f3476-ea82-53db-8042-2f894d6e22da"
+          ]
+        }
+      ],
+      "input_bundle_hash": "79284574ae27a619301270ca13a2650d5180b6f97080a0856f4547c5fb533410",
+      "output_bundle_hash": "de6b403d8f7f22c344795e25942de7c6c673482a9ef85d77fa4799e740339d40"
+    },
+    "policies": [
+      {
+        "policy_id": "orpaynter-public-demo-boundary-policy",
+        "version": "0.1.0",
+        "ruleset_hash": "1f7d0c0bcbf3b9c11e0e1036bb14868f87ca84ddaecb68f3a79f7ef7da15e95e",
+        "rules": [
+          {
+            "rule_id": "public-data-only",
+            "description": "Only public storm data may enter this demo package; no personal address, no named person, no specific property.",
+            "condition": "non-public or personal data present",
+            "effect": "block"
+          },
+          {
+            "rule_id": "human-approval-required",
+            "description": "No action, filing, payment or release without Oliver's yes.",
+            "condition": "human approval missing",
+            "effect": "require_approval"
+          },
+          {
+            "rule_id": "correlation-required",
+            "description": "Public evidence alone cannot authorize a claim recommendation or release.",
+            "condition": "matched evidence or correlation missing",
+            "effect": "hold"
+          },
+          {
+            "rule_id": "validation-required",
+            "description": "Two-layer DecisionPackage validation is required before approval or payment.",
+            "condition": "validation status != passed",
+            "effect": "hold"
+          }
+        ]
+      }
+    ],
+    "risk_assessment": {
+      "model": "deterministic-public-demo-boundary-risk",
+      "model_version": "0.1.0",
+      "overall_level": "high",
+      "score": 0.6,
+      "blocked": false,
+      "signals": [
+        {
+          "signal_id": "sig-source-hash",
+          "type": "source_hash_present",
+          "value": true,
+          "threshold": true,
+          "result": "pass",
+          "evidence_refs": [
+            "ev-spc-day1-1300z-20261111",
+            "ev-spc-day1-2000z-20261111",
+            "ev-spc-md2449-20261111",
+            "ev-nws-ind-watch704-20261111",
+            "ev-nws-pah-warnings-20261111",
+            "ev-nws-iln-sps-svs-20261111",
+            "ev-indystar-live-20261111",
+            "ev-nws-lmk-briefing-20261111"
+          ]
+        },
+        {
+          "signal_id": "sig-multi-office-corroboration",
+          "type": "independent_sources_agree_on_event",
+          "value": 4,
+          "threshold": 2,
+          "result": "pass",
+          "evidence_refs": [
+            "ev-spc-day1-1300z-20261111",
+            "ev-nws-ind-watch704-20261111",
+            "ev-nws-pah-warnings-20261111",
+            "ev-nws-iln-sps-svs-20261111"
+          ]
+        },
+        {
+          "signal_id": "sig-hail-size-agreement",
+          "type": "hail_size_forecast_vs_observed_agree",
+          "value": false,
+          "threshold": true,
+          "result": "flag",
+          "evidence_refs": [
+            "ev-spc-md2449-20261111",
+            "ev-spc-day1-2000z-20261111",
+            "ev-nws-pah-warnings-20261111",
+            "ev-nws-iln-sps-svs-20261111"
+          ]
+        },
+        {
+          "signal_id": "sig-tornado-confirmed",
+          "type": "tornado_confirmed_by_report",
+          "value": false,
+          "threshold": true,
+          "result": "flag",
+          "evidence_refs": [
+            "ev-indystar-live-20261111",
+            "ev-spc-day1-2000z-20261111"
+          ]
+        },
+        {
+          "signal_id": "sig-watch-vs-warnings",
+          "type": "warnings_issued_inside_watch_area",
+          "value": true,
+          "threshold": true,
+          "result": "pass",
+          "evidence_refs": [
+            "ev-nws-ind-watch704-20261111",
+            "ev-nws-pah-warnings-20261111"
+          ]
+        },
+        {
+          "signal_id": "sig-trae-contractor-score",
+          "type": "trae_contractor_score",
+          "value": 0,
+          "threshold": 40,
+          "result": "flag",
+          "evidence_refs": [
+            "ev-nws-pah-warnings-20261111"
+          ]
+        },
+        {
+          "signal_id": "sig-matched-pair",
+          "type": "matched_evidence_pair_present",
+          "value": false,
+          "threshold": true,
+          "result": "flag",
+          "evidence_refs": [
+            "ev-nws-pah-warnings-20261111"
+          ]
+        },
+        {
+          "signal_id": "sig-public-only",
+          "type": "public_data_only",
+          "value": true,
+          "threshold": true,
+          "result": "pass",
+          "evidence_refs": [
+            "ev-spc-day1-1300z-20261111",
+            "ev-spc-day1-2000z-20261111",
+            "ev-spc-md2449-20261111",
+            "ev-nws-ind-watch704-20261111",
+            "ev-nws-pah-warnings-20261111",
+            "ev-nws-iln-sps-svs-20261111",
+            "ev-indystar-live-20261111",
+            "ev-nws-lmk-briefing-20261111"
+          ]
+        }
+      ],
+      "assessed_at": "2026-11-12T02:30:02Z"
+    },
+    "conflicts": [
+      {
+        "conflict_id": "conf-79284574ae27a619-counterpart",
+        "type": "missing_item",
+        "severity": "warning",
+        "description": "No real property, owner, or matched counterpart estimate is attached; correlation cannot begin. By design in a public demo.",
+        "evidence_refs": [
+          "ev-spc-day1-1300z-20261111",
+          "ev-spc-day1-2000z-20261111",
+          "ev-spc-md2449-20261111",
+          "ev-nws-ind-watch704-20261111",
+          "ev-nws-pah-warnings-20261111",
+          "ev-nws-iln-sps-svs-20261111",
+          "ev-indystar-live-20261111",
+          "ev-nws-lmk-briefing-20261111"
+        ],
+        "status": "open"
+      },
+      {
+        "conflict_id": "conf-79284574ae27a619-hail-size",
+        "type": "other",
+        "severity": "material",
+        "description": "Hail size numbers disagree between forecast and observed values: SPC Mesoscale Discussion 2449 gives a most probable peak of 1.00-1.75 inches, the SPC 2000Z outlook gives scattered severe hail around 1-1.5 inches, the Watch 704 graphic gives hail up to ping-pong size (1.5 inches), while the observed/reported values in the package are 1.0 inch from trained spotters near Maceo, KY and 0.50 inch radar-indicated near Oldenburg, IN (plus half-inch radar-indicated statements in central Indiana). Forecast peak and observed values are not reconciled, and at build time no SPC filtered storm-reports list for the evening of Nov 11 had been published. The package does not pick a winner.",
+        "evidence_refs": [
+          "ev-spc-md2449-20261111",
+          "ev-spc-day1-2000z-20261111",
+          "ev-nws-ind-watch704-20261111",
+          "ev-nws-pah-warnings-20261111",
+          "ev-nws-iln-sps-svs-20261111"
+        ],
+        "status": "open"
+      },
+      {
+        "conflict_id": "conf-79284574ae27a619-tornado",
+        "type": "other",
+        "severity": "material",
+        "description": "Tornado warning versus no confirmed tornado: a cell triggered a tornado warning in western Indiana and was moving south and weakening as of about 5:45 p.m. (per the IndyStar live blog quoting an NWS meteorologist), and SPC products and Watch 704 list only a low/possible tornado risk (a couple possible in the watch graphic). No tornado report appears in any SPC product fetched at build time. This package records a tornado WARNING, not a tornado, and must not be used as tornado-damage evidence.",
+        "evidence_refs": [
+          "ev-indystar-live-20261111",
+          "ev-spc-day1-2000z-20261111",
+          "ev-nws-ind-watch704-20261111"
+        ],
+        "status": "open"
+      },
+      {
+        "conflict_id": "conf-79284574ae27a619-risk-upgrade",
+        "type": "other",
+        "severity": "info",
+        "description": "Temporal evolution, not a contradiction: the morning SPC Day 1 outlook (0655 AM CST) was Marginal Risk and the NWS Wilmington Hazardous Weather Outlook (12:09 AM EST) said the probability for widespread hazardous weather was low with spotter activation not expected; by the 2000Z SPC update the risk was upgraded to Slight (15% hail and wind probabilities) and NWS Louisville added a Level 2 Slight risk, followed by Watch 704 and evening severe warnings. The globe view must show items with their own valid times, not one risk level for the day.",
+        "evidence_refs": [
+          "ev-spc-day1-1300z-20261111",
+          "ev-spc-day1-2000z-20261111",
+          "ev-nws-lmk-briefing-20261111",
+          "ev-nws-iln-sps-svs-20261111",
+          "ev-nws-ind-watch704-20261111"
+        ],
+        "status": "open"
+      }
+    ],
+    "decision": {
+      "decision_id": "decision-79284574ae27a619-hold",
+      "decision_type": "hold_pending_human_approval",
+      "outcome": "hold",
+      "rationale": "PUBLIC / DEMO. LIVE same-day severe hail/wind evidence and provenance succeeded, and two hard problems were caught and held open instead of smoothed over (forecast hail peak 1.00-1.75 inches versus observed 1.0 inch at Maceo and 0.50 inch radar-indicated at Oldenburg; a tornado warning in western Indiana with no confirmed tornado). A consequential claim decision is still prohibited until a real property and owner exist, matched evidence, deterministic correlation, two-layer validation, and human approval are complete. Recommendation: approve for inspection only, if a real property in this area were ever presented by a real owner.",
+      "evidence_refs": [
+        "ev-spc-day1-1300z-20261111",
+        "ev-spc-day1-2000z-20261111",
+        "ev-spc-md2449-20261111",
+        "ev-nws-ind-watch704-20261111",
+        "ev-nws-pah-warnings-20261111",
+        "ev-nws-iln-sps-svs-20261111",
+        "ev-indystar-live-20261111",
+        "ev-nws-lmk-briefing-20261111"
+      ],
+      "policy_refs": [
+        "orpaynter-public-demo-boundary-policy@0.1.0"
+      ],
+      "conflict_refs": [
+        "conf-79284574ae27a619-counterpart",
+        "conf-79284574ae27a619-hail-size",
+        "conf-79284574ae27a619-tornado",
+        "conf-79284574ae27a619-risk-upgrade"
+      ],
+      "authority_exercised": "record_evidence_and_hold",
+      "decided_at": "2026-11-12T02:30:02Z"
+    },
+    "approvals": [
+      {
+        "approval_id": "approval-79284574ae27a619-pending",
+        "gate": "claim_review_approval",
+        "status": "approved",
+        "approver": {
+          "actor_type": "human",
+          "actor_id": "oliver-paynter",
+          "role": "founder"
+        },
+        "approved_at": "2026-11-12T02:44:00Z",
+        "notes": "approval given by voice",
+        "evidence_refs": [
+          "ev-spc-day1-1300z-20261111",
+          "ev-spc-day1-2000z-20261111",
+          "ev-spc-md2449-20261111",
+          "ev-nws-ind-watch704-20261111",
+          "ev-nws-pah-warnings-20261111",
+          "ev-nws-iln-sps-svs-20261111",
+          "ev-indystar-live-20261111",
+          "ev-nws-lmk-briefing-20261111"
+        ],
+        "attestation_hash": "7b59aa3bd12dadd52a208cb9d5d4de1717b039ddb8efd2b0a0b7fee173f60faa"
+      }
+    ],
+    "commerce": {
+      "required": false,
+      "amount": {
+        "amount_minor": 0,
+        "currency": "USD"
+      },
+      "idempotency_key": "inactive:d15f3476-ea82-53db-8042-2f894d6e22da",
+      "checkout_session_id": null,
+      "payment_intent_id": null,
+      "webhook_event_id": null,
+      "status": "not_required",
+      "durable_record_ref": null
+    },
+    "release_gate": {
+      "requirements": [
+        {
+          "requirement_id": "matched-evidence",
+          "description": "Carrier and contractor evidence belong to the same claim.",
+          "status": "pending",
+          "evidence_ref": "ev-nws-pah-warnings-20261111"
+        },
+        {
+          "requirement_id": "correlation-complete",
+          "description": "Deterministic correlation has completed.",
+          "status": "pending",
+          "evidence_ref": null
+        },
+        {
+          "requirement_id": "two-layer-validation",
+          "description": "Structural and semantic validation passed.",
+          "status": "pending",
+          "evidence_ref": null
+        },
+        {
+          "requirement_id": "human-approved",
+          "description": "A role-gated reviewer approved the package.",
+          "status": "pending",
+          "evidence_ref": null
+        },
+        {
+          "requirement_id": "payment-verified",
+          "description": "The required payment was verified after approval.",
+          "status": "pending",
+          "evidence_ref": null
+        }
+      ],
+      "status": "locked",
+      "released_artifact_ref": null,
+      "released_at": null
+    },
+    "recovery": {
+      "kill_switch": {
+        "endpoint": "POST /claims/reviews/{id}/kill",
+        "auth_required": true,
+        "reason_required": true,
+        "current_status": "armed",
+        "last_test": {
+          "mode": "dry_run",
+          "tested_at": "2026-11-12T02:30:02Z",
+          "result": "not_run",
+          "observed_effects": []
+        }
+      },
+      "rollback_manifest": {
+        "reversible": true,
+        "preconditions": [
+          "report has not been released",
+          "no payment has been initiated"
+        ],
+        "steps": [
+          "mark package killed",
+          "lock downstream transitions",
+          "preserve evidence",
+          "append kill reason"
+        ],
+        "irreversible_effects": [
+          "audit events remain append-only"
+        ]
+      }
+    },
+    "audit": {
+      "ledger_type": "hash_chained_jsonl",
+      "events": [
+        {
+          "sequence": 1,
+          "event_id": "evt-ohio-valley-severe-261111-ingested",
+          "event_type": "public_evidence_ingested",
+          "actor": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "occurred_at": "2026-11-12T02:30:00Z",
+          "input_hash": "79284574ae27a619301270ca13a2650d5180b6f97080a0856f4547c5fb533410",
+          "output_hash": "79284574ae27a619301270ca13a2650d5180b6f97080a0856f4547c5fb533410",
+          "previous_event_hash": null,
+          "details": {
+            "claim_id": "demo-ohio-valley-severe-2026-11-11",
+            "label": "PUBLIC / DEMO",
+            "evidence_count": 8
+          },
+          "event_hash": "71f537db1f480727948d93f0996b6ca6f3d686c0785b19b2ba8203697b30e02d"
+        },
+        {
+          "sequence": 2,
+          "event_id": "evt-ohio-valley-severe-261111-checked",
+          "event_type": "public_evidence_checked",
+          "actor": {
+            "actor_type": "agent",
+            "actor_id": "orpaynter-public-demo",
+            "role": "sense",
+            "runtime": "python"
+          },
+          "occurred_at": "2026-11-12T02:30:01Z",
+          "input_hash": "79284574ae27a619301270ca13a2650d5180b6f97080a0856f4547c5fb533410",
+          "output_hash": "de6b403d8f7f22c344795e25942de7c6c673482a9ef85d77fa4799e740339d40",
+          "previous_event_hash": "71f537db1f480727948d93f0996b6ca6f3d686c0785b19b2ba8203697b30e02d",
+          "details": {
+            "parser_version": "public-demo-0.1.0",
+            "evidence_count": 8,
+            "provenance_retained": true,
+            "conflicts_found": [
+              "hail-size-forecast-vs-observed",
+              "tornado-warning-no-confirmed-report",
+              "risk-upgrade-morning-to-afternoon",
+              "morning-low-probability-vs-evening-warnings"
+            ]
+          },
+          "event_hash": "97f0ab73c160f0f1ae5bcf8fa75edcebee3563ea4c5d44647f8820dc75ff3f19"
+        },
+        {
+          "sequence": 3,
+          "event_id": "evt-ohio-valley-severe-261111-package",
+          "event_type": "decision_package_emitted",
+          "actor": {
+            "actor_type": "system",
+            "actor_id": "claimflow-package-adapter",
+            "role": "package_builder",
+            "runtime": "python"
+          },
+          "occurred_at": "2026-11-12T02:30:02Z",
+          "input_hash": "de6b403d8f7f22c344795e25942de7c6c673482a9ef85d77fa4799e740339d40",
+          "output_hash": "79284574ae27a619301270ca13a2650d5180b6f97080a0856f4547c5fb533410",
+          "previous_event_hash": "97f0ab73c160f0f1ae5bcf8fa75edcebee3563ea4c5d44647f8820dc75ff3f19",
+          "details": {
+            "schema_version": "0.2.0",
+            "lifecycle_state": "evidence_ready",
+            "release_locked": true,
+            "approval": "pending"
+          },
+          "event_hash": "882f12435ec6e8544851c42d9bf326f9f8faea7336f0bff82c927bc25f421777"
+        },
+        {
+          "sequence": 4,
+          "event_id": "evt-24fc77b876d85a39-approved",
+          "event_type": "human_approval_recorded",
+          "actor": {
+            "actor_type": "human",
+            "actor_id": "oliver-paynter",
+            "role": "founder"
+          },
+          "occurred_at": "2026-11-12T02:44:00Z",
+          "input_hash": "05a9967370bcde6fe8964324b9daf4544423ce2b0fef1c4bd704bc264384f35b",
+          "output_hash": "7b59aa3bd12dadd52a208cb9d5d4de1717b039ddb8efd2b0a0b7fee173f60faa",
+          "previous_event_hash": "882f12435ec6e8544851c42d9bf326f9f8faea7336f0bff82c927bc25f421777",
+          "details": {
+            "channel": "voice",
+            "decision": "yes",
+            "gate": "claim_review_approval",
+            "approver": "Oliver Paynter",
+            "label": "PUBLIC / DEMO",
+            "claim_id": "demo-ohio-valley-severe-2026-11-11",
+            "attestation_hash": "7b59aa3bd12dadd52a208cb9d5d4de1717b039ddb8efd2b0a0b7fee173f60faa"
+          },
+          "event_hash": "32956e093cfd82771e4a4b13a801054335f846c3443b8f0d0b8841a37760e3e2"
+        }
+      ],
+      "chain_head_hash": "32956e093cfd82771e4a4b13a801054335f846c3443b8f0d0b8841a37760e3e2",
+      "query_keys": [
+        "package_id",
+        "claim_id",
+        "tenant_id",
+        "source_sha256",
+        "lifecycle_state"
+      ]
+    },
+    "portability": {
+      "profile": "orpaynter-decision-package-claimflow-v0.2",
+      "source_runtime": "python-public-demo",
+      "tested_target_runtimes": [],
+      "export_bundle_hash": "a0d05833dc42896f0541449ea537ea6dc1d4e4cea3233087ba141375a5e1eee9",
+      "external_standard_mappings": []
+    },
+    "created_at": "2026-11-12T02:30:00Z",
+    "updated_at": "2026-11-12T02:44:00Z"
+  }
+}

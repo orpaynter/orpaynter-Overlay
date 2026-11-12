@@ -1,0 +1,10 @@
+time_utc,type,size_or_speed,location_description,county,state,lat,lon,comments
+2230,WIND,UNK,2 S Riley,Vigo,IN,39.36,-87.3,3 to 4 homes with roof damage. A grain bin partially damaged and thrown into nearby trees. Trees downed in roadway. (IND)
+2229,HAIL,1.75,Riley,Vigo,IN,39.39,-87.3,Largest hail report in the verified set. (IND)
+2211,HAIL,1.00,2 NE Crossville,White,IL,38.19,-88.04,CR1800 E / IL 1 covered in quarter+ hail. (PAH)
+2220,HAIL,1.00,Patoka,Gibson,IN,38.41,-87.58,"Dime to quarter hail, social media video. (PAH)"
+2245,HAIL,1.00,5 S Poseyville,Posey,IN,38.1,-87.79,(PAH)
+2249,HAIL,1.00,Princeton,Gibson,IN,38.36,-87.57,(PAH)
+2310,HAIL,1.00,2 SW Poseyville (North Posey HS),Posey,IN,38.14,-87.8,(PAH)
+2358,HAIL,1.00,5 NE Reed,Warrick,IN,37.92,-87.3,(PAH)
+0024,HAIL,1.00,Maceo (SPC lists 'Macio'),Daviess,KY,37.86,-86.99,0024 UTC Nov 11 report day = 6:24 PM CST Nov 11 local. (PAH)

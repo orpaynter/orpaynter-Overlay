@@ -1,0 +1,98 @@
+{
+  "label": "PUBLIC / DEMO \u2014 NOT A REAL CLAIM",
+  "receipt_id": "c57e6c23-302a-54f9-b2fa-60d158e298f7",
+  "receipt_type": "sealed_receipt",
+  "demo_label": "DP-PUBLIC-DEMO-2026-11-11-OHIO-VALLEY-SEVERE",
+  "package_id": "d15f3476-ea82-53db-8042-2f894d6e22da",
+  "package_hash": "5b3cb6514e98f7df6b7ac760a774386698efca830cb6175df6d8db58fd9cebc2",
+  "previous_package_hash": "05a9967370bcde6fe8964324b9daf4544423ce2b0fef1c4bd704bc264384f35b",
+  "previous_receipt_hash": "882f12435ec6e8544851c42d9bf326f9f8faea7336f0bff82c927bc25f421777",
+  "audit_chain_head_hash": "32956e093cfd82771e4a4b13a801054335f846c3443b8f0d0b8841a37760e3e2",
+  "sealed_at": "2026-11-12T02:44:00Z",
+  "issued_at": "2026-11-12T02:44:00Z",
+  "approval": {
+    "approver": "Oliver Paynter",
+    "actor_type": "human",
+    "actor_id": "oliver-paynter",
+    "gate": "claim_review_approval",
+    "decision": "yes",
+    "channel": "voice",
+    "approved_at": "2026-11-12T02:44:00Z",
+    "attestation_hash": "7b59aa3bd12dadd52a208cb9d5d4de1717b039ddb8efd2b0a0b7fee173f60faa",
+    "notes": "approval given by voice"
+  },
+  "evidence_summary": {
+    "event": "Ohio Valley severe hail/wind, Wed Nov 11, 2026: SPC Slight Risk with 15% hail/wind, Severe Thunderstorm Watch 704, hail to 1.75 inches at Riley, Indiana and wind damage to 3-4 homes at 2 S Riley (SPC storm reports), across IN/KY/SE IL/SW OH",
+    "sources": [
+      "SPC Day 1 Convective Outlook 1300Z, Nov 11, 2026 (direct agency fetch)",
+      "SPC Day 1 Convective Outlook 2000Z update, Nov 11, 2026 (agency product via reproduction)",
+      "SPC Mesoscale Discussion 2449, Nov 11, 2026 (agency product via reproduction)",
+      "NWS Indianapolis Severe Thunderstorm Watch 704, Nov 11, 2026 (agency product via reproduction)",
+      "NWS Paducah warning text, Nov 11, 2026 (agency product via reproduction)",
+      "NWS Wilmington OH statements via NOAA READY, Nov 11, 2026 (direct agency fetch)",
+      "IndyStar live blog, Nov 11, 2026 (non-agency news; lede date typo noted, not relied on)",
+      "NWS Louisville briefing, Nov 11, 2026 (agency product via reproduction)"
+    ],
+    "evidence_count": 8,
+    "evidence": [
+      {
+        "evidence_id": "ev-spc-day1-1300z-20261111",
+        "sha256": "24fc77b876d85a392c3ebf5213733e7277c1a16209ab87b9ade870498d7237a9",
+        "source_uri": "https://forecast.weather.gov/product.php?site=FGF&issuedby=DY1&product=SWO&format=TXT&version=4&glossary=1"
+      },
+      {
+        "evidence_id": "ev-spc-day1-2000z-20261111",
+        "sha256": "5ed47b7c4bc34727586f1dc64d339d595d881183c0c1dd7fbc80c6e8a0436f89",
+        "source_uri": "https://westtennesseestormtrackers.net/severe/"
+      },
+      {
+        "evidence_id": "ev-spc-md2449-20261111",
+        "sha256": "005b42353b659ebbf238b94a31892dad63ad4c0917e4a882a221d4047f4c7cae",
+        "source_uri": "https://stormnews.org/news/what-is-a-blizzard-official-criteria-and-where-they-hit-the-most"
+      },
+      {
+        "evidence_id": "ev-nws-ind-watch704-20261111",
+        "sha256": "9958db5a70413d784819cf3073bee8f76dffedb3a0d2449c9ad7450bbbff1afe",
+        "source_uri": "https://paulpoteet.com/category/weather/forecasts/indianas-weather/"
+      },
+      {
+        "evidence_id": "ev-nws-pah-warnings-20261111",
+        "sha256": "79284574ae27a619301270ca13a2650d5180b6f97080a0856f4547c5fb533410",
+        "source_uri": "https://paulpoteet.com/category/weather/forecasts/indianas-weather/"
+      },
+      {
+        "evidence_id": "ev-nws-iln-sps-svs-20261111",
+        "sha256": "87931c1cb4e9b5f76e85a96924cd7722db4df9505faa89c46f67bbf1c548523f",
+        "source_uri": "https://www.ready.noaa.gov/ready2-bin/state.pl?product=spwx&state=oh"
+      },
+      {
+        "evidence_id": "ev-indystar-live-20261111",
+        "sha256": "c6cf3eff364d574d545cd6ac7c2c106f248fb03ab1fe6a67c055185b5e08c05c",
+        "source_uri": "https://www.indystar.com/story/weather/indianapolis/2026/11/11/nws-warns-of-strong-to-severe-indianapolis-thunderstorms--live/92733853007/"
+      },
+      {
+        "evidence_id": "ev-nws-lmk-briefing-20261111",
+        "sha256": "0a153173a0bf4190145663512260aa757d976edc137d2d420e30a63b7bfbdeae",
+        "source_uri": "https://www.facebook.com/NWSLouisville/posts/pfbid02AETAo6uhiRwrmM5GX5GV9GvsJhwTnCBBpMN7nKPWKU3cBxu4qzVdkd1A6Y5bgL22l"
+      }
+    ],
+    "evidence_manifest_hash": "82e759a53f0c39a39ed5650aa1f683908a213b0e5a611fad53e350321341afbf"
+  },
+  "commerce": {
+    "required": false,
+    "amount_minor": 0,
+    "currency": "USD",
+    "status": "not_required"
+  },
+  "scope": "PUBLIC / DEMO only. This receipt seals Oliver's voice approval of the public demo DecisionPackage as proof of loop steps 1-6. It does not file a claim, authorise a repair, initiate a payment, release a claim report, or clear GACC #128. No real property, owner, or matched claim evidence exists. The exact-locations addendum (9 SPC report points) and the Grok narrowing pack are companion materials, not part of this sealed package. GitHub push / globe pins require a separate yes and have NOT been done.",
+  "limits": [
+    "No Final Gate run (6 checks not run - no case, no matched evidence, no correlation).",
+    "No live TRAE score - TRAE would return 0 with no contractor entity, below the 40 threshold.",
+    "Release gate remains locked; the 5 release requirements are still pending.",
+    "No live runtime - GACC #128 RED/BLOCKED; no AIA runtime was reachable and this package is not GACC evidence.",
+    "Evidence is NOT all direct agency sourcing: 2 direct agency fetches, 5 agency products via reproductions, 1 non-agency news source (IndyStar), labelled as such in the package.",
+    "4 conflicts held open and unresolved: no real property/owner by design; hail forecast vs observed (partly updated by the later SPC reports addendum, which is outside this package); a tornado warning in western Indiana with NO tornado report - package records warning only; risk upgraded through the day (temporal).",
+    "Workflow was mapped through the AIA spine as a MAP only - it did NOT run on a live AIA runtime."
+  ],
+  "receipt_hash": "86c64b7e6bd09d5db842d3d06a49553beb9eda5817d41691f71b2b8692540ac8"
+}
